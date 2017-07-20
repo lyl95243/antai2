@@ -1,0 +1,125 @@
+.container{
+    height: 950px;
+}
+.leftNavCon{
+    height: 867px;
+}
+.leftNav{
+    height: 870px;
+}
+.rightCon{
+    width: 96%;
+    height: 767px;
+    margin: 2%;
+    border:1px solid #047afe;
+    position: relative;
+}
+.zuos,.zuox,.yous,.youx{
+    width: 300px;
+    height: 109px;
+    position: absolute;
+    z-index:0;
+}
+.zuos{
+    background: url("../images/bg_attackBackzuos.png") no-repeat center;
+    top: -8px;
+    left: -8px;
+}
+.zuox{
+    background: url("../images/bg_attackBackzuox.png") no-repeat center;
+    bottom: -8px;
+    left: -8px;
+}
+.yous{
+    background: url("../images/bg_attackBackyous.png") no-repeat center;
+    top: -8px;
+    right: -8px;
+}
+.youx{
+    background: url("../images/bg_attackBackyoux.png") no-repeat center;
+    bottom: -8px;
+    right: -8px;
+}
+.systemViewTitle{
+    padding: 0 4%;
+    color: white;
+    position: absolute;
+    top:-14px;
+    left: 50%;
+    margin-left: -10%;
+    background: rgba(9,19,43,0.7);
+    filter: alpha(opacity=70);
+    font-size: 22px;
+}
+.systemViewTitle .leftBor,.systemViewTitle .rightBor{
+    width: 8px;
+    height: 24px;
+    border: 1px solid #047afe;
+    position: absolute;
+}
+.systemViewTitle .leftBor{
+    left:0;
+    top: 0;
+}
+.systemViewTitle .rightBor{
+    right: 0;
+    top: 0;
+}
+.systemViewChartTitle{
+    width: 20.4%;
+    height: 46px;
+    background: url("../images/border_title-.png") no-repeat center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #22c9fb;
+    line-height:38px;
+    text-align: center;
+    margin-left: 2%;
+    position: relative;
+}
+.line{
+    width: 87px;height: 28px;
+    background: url('../images/bg_attackTitle.png') no-repeat center;
+    position: absolute;
+    top:-6px;
+    left: -10%;
+}
+.cpuMemDisk{
+    width: 33%;
+    float: left;
+}
+.cpuMemDisk>span{
+    float: left;
+    color: white;
+}
+.cpuMemDisk>div{
+    float: left;
+    width: 100%;
+    height: 300px;
+}
+.sysVerWrap{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -357px;
+}
+.sysVersion{
+    width: 357px;
+    height: 291px;
+    background: url("../images/systemView.png");
+}
+.sysVersion>p{
+    color: #07b4f0;
+    line-height: 52px;
+    padding: 0 0 0 45px;
+
+}
+.sysVersion>div span{
+    color: white;
+    line-height: 35px;
+}
+
+
+
+
+

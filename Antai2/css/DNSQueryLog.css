@@ -1,0 +1,278 @@
+.container{
+    height: 1642px;
+}
+.leftNavCon{
+    height: 1559px;
+}
+.leftNav{
+    height: 1562px;
+}
+.rightCon{
+    width: 96%;
+    height: 1470px;
+    margin: 2%;
+    border:1px solid #047afe;
+    position: relative;
+}
+.zuos,.zuox,.yous,.youx{
+    width: 300px;
+    height: 109px;
+    position: absolute;
+    z-index:0;
+}
+.zuos{
+    background: url("../images/bg_attackBackzuos.png") no-repeat center;
+    top: -8px;
+    left: -8px;
+}
+.zuox{
+    background: url("../images/bg_attackBackzuox.png") no-repeat center;
+    bottom: -8px;
+    left: -8px;
+}
+.yous{
+    background: url("../images/bg_attackBackyous.png") no-repeat center;
+    top: -8px;
+    right: -8px;
+}
+.youx{
+    background: url("../images/bg_attackBackyoux.png") no-repeat center;
+    bottom: -8px;
+    right: -8px;
+}
+.DNSQueryLogTitle{
+    padding: 0 4%;
+    color: white;
+    position: absolute;
+    top:-14px;
+    left: 50%;
+    margin-left: -10%;
+    background: rgba(9,19,43,0.7);
+    filter: alpha(opacity=70);
+    font-size: 22px;
+}
+.DNSQueryLogTitle .leftBor,.DNSQueryLogTitle .rightBor{
+    width: 8px;
+    height: 24px;
+    border: 1px solid #047afe;
+    position: absolute;
+}
+.DNSQueryLogTitle .leftBor{
+    left:0;
+    top: 0;
+}
+.DNSQueryLogTitle .rightBor{
+    right: 0;
+    top: 0;
+}
+.IPDomainTitle{
+    width: 20.4%;
+    height: 46px;
+    background: url("../images/border_title-.png") no-repeat center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #22c9fb;
+    line-height:38px;
+    text-align: center;
+    margin-left: 2%;
+    position: relative;
+}
+.line{
+    width: 87px;height: 28px;
+    background: url('../images/bg_attackTitle.png') no-repeat center;
+    position: absolute;
+    top:-6px;
+    left: -10%;
+}
+.IPInforList,.sourceIP{
+    width: 97%;
+    border-right: 1px solid #3188cf;
+    margin: 1.5%;
+}
+
+.IPInforList>tbody>tr>td:first-child,.sourceIP>tbody>tr>td:first-child{
+    border-left: 1px solid #3188cf;
+}
+.IPInforList>tbody>tr,.sourceIP>tbody>tr{
+    border-bottom: 1px solid #1f6fbb;
+}
+.IPInforList>tbody>tr>th,.IPInforList>tbody>tr>td,.sourceIP>tbody>tr>th,.sourceIP>tbody>tr>td{
+    color: white;
+    padding: 8px;
+}
+.IPInforList>tbody>.tableTh,.sourceIP>tbody>.tableTr{
+    width: 100%;
+    height: 43px;
+    background: url("../images/bg_attackBack.png");
+}
+/*.sourceIP>tbody>.tableTr{*/
+    /*width: 100%;*/
+    /*height: 42px;*/
+    /*background: url("../images/accesslog.png");*/
+/*}*/
+.sourceIP>tbody>.tableTrr{
+    width: 100%;
+    height: 42px;
+    background: url("../images/DNSlog_03.png");
+}
+.IPInforList>tbody>tr>td:nth-child(1),.IPInforList>tbody>tr>td:nth-child(3)
+,.IPInforList>tbody>tr>td:nth-child(5),.IPInforList>tbody>tr>td:nth-child(7)
+,.IPInforList>tbody>tr>td:nth-child(9),.IPInforList>tbody>tr>td:nth-child(11)
+,.sourceIP>tbody>tr>td:nth-child(1){
+    background: #012859;
+}
+.IPInforList>tbody>tr>td:nth-child(2),.IPInforList>tbody>tr>td:nth-child(4)
+,.IPInforList>tbody>tr>td:nth-child(6),.IPInforList>tbody>tr>td:nth-child(8)
+,.IPInforList>tbody>tr>td:nth-child(10)
+,.sourceIP>tbody>tr>td:nth-child(2){
+    background: #014293;
+    color: #ff8463;
+}
+.filter>ul li p{
+    color: #22c9fb;
+    display: inline-block;
+}
+.filter>ul li select{
+    width: 76px;
+    height: 27px;
+    border:1px solid #075c83;
+    background: #06244b;
+    color: #22c9fb;
+}
+.filter>ul li option{
+    color: #22c9fb;
+}
+
+.filter{
+    overflow: hidden;
+    margin: 54px 0 18px 5%;
+    position: relative;
+    z-index: 99;
+}
+.filter>ul li{
+    color: #22c9fb;
+    float: left;
+    margin-right: 1%;
+}
+@media (max-width:1400px){
+    .tendencyChart{
+        height: 330px !important;
+    }
+    .filter>ul li:nth-child(4),.filter>ul li:nth-child(5){
+        width: 26% !important;
+    }
+    .filter>ul li:nth-child(5),.filter>ul li:nth-child(6){
+        margin-top: 10px !important;
+    }
+}
+.filter>ul li>input{
+    outline: none;
+    background: transparent;
+    border:1px solid #075c83;
+    padding: 5px 9px;
+    color: #07a0da;
+    background: #06244b;
+}
+.filter>ul li span,.filter>ul li p{
+    font-size: 16px;
+    margin-right: 5px;
+}
+.filter>ul li ::-webkit-input-placeholder{
+    color:    #07a0da;
+}
+.filter>ul li :-moz-placeholder{
+    color:    #07a0da;
+    opacity:  1;
+}
+.filter>ul li ::-moz-placeholder{
+    color:    #07a0da;
+    opacity:  1;
+}
+.filter>ul li :-ms-input-placeholder{
+    color:    #07a0da;
+}
+.fanwei{
+    position: relative;
+    width: 28%;
+}
+.fanwei input{
+    outline: none;
+    background: transparent;
+    border:1px solid #075c83;
+    padding: 3px 9px;
+    color: #07a0da;
+    background: #06244b;
+    width: 77%;
+    height: 19px;
+}
+.carets,.caretx{
+    position: absolute;
+    right: 1%;
+}
+.carets{
+    top: 58.5%;
+}
+.caretx{
+    top:27%;
+}
+.trace,.search{
+    width: 112px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 5px;
+    background: #b0d311;
+    color: #012859;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 100;
+    font-weight: 600;
+}
+.search{
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+}
+.page{
+    color:#22c9fb ;
+    margin:10px 58px 30px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 99;
+}
+.page>ul{
+    margin-right: 30px;
+}
+.page>ul li,.page >span{float: left;}
+.page>ul li a{
+    color:#22c9fb ;
+    padding: 0 10px;
+    border:1px solid #22c9fb;
+    border-right: none;
+    display: inline-block;
+    height: 22px;
+    line-height: 23px;
+    float: left;
+}
+.page>ul li a>img{
+    margin-top: 5px;
+    border: none;
+}
+.DNSTotal{
+    width: 33%;
+    float: left;
+    margin:0.5% 0 0 1.56%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

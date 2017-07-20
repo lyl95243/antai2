@@ -1,0 +1,397 @@
+.container{
+    height: 950px;
+}
+.leftNavCon{
+    height: 867px;
+}
+.leftNav{
+    height: 870px;
+}
+.rightCon{
+    width: 96%;
+    height: 767px;
+    margin: 2%;
+    border:1px solid #047afe;
+    position: relative;
+}
+.zuos,.zuox,.yous,.youx{
+    width: 300px;
+    height: 109px;
+    position: absolute;
+    z-index:0;
+}
+.zuos{
+    background: url("../images/bg_attackBackzuos.png") no-repeat center;
+    top: -8px;
+    left: -8px;
+}
+.zuox{
+    background: url("../images/bg_attackBackzuox.png") no-repeat center;
+    bottom: -8px;
+    left: -8px;
+}
+.yous{
+    background: url("../images/bg_attackBackyous.png") no-repeat center;
+    top: -8px;
+    right: -8px;
+}
+.youx{
+    background: url("../images/bg_attackBackyoux.png") no-repeat center;
+    bottom: -8px;
+    right: -8px;
+}
+.assetsTitle{
+    padding: 0 4%;
+    color: white;
+    position: absolute;
+    top:-14px;
+    left: 50%;
+    margin-left: -10%;
+    background: rgba(9,19,43,0.7);
+    filter: alpha(opacity=70);
+    font-size: 22px;
+}
+.assetsTitle .leftBor,.assetsTitle .rightBor{
+    width: 8px;
+    height: 24px;
+    border: 1px solid #047afe;
+    position: absolute;
+}
+.assetsTitle .leftBor{
+    left:0;
+    top: 0;
+}
+.assetsTitle .rightBor{
+    right: 0;
+    top: 0;
+}
+.assetsCon{
+    width: 96%;
+    margin: 2.5% 2%;
+    position: relative;
+    z-index: 99;
+}
+.nav-tabs>ul{
+    overflow: hidden;
+    border-left:1px solid #2f94e0 ;
+    border-bottom: none;
+}
+.nav-tabs>ul li{
+    float: left;
+    color: #22c9fb;
+    padding: 12px 35px;
+    cursor: pointer;
+    width: 104px;
+    border-top:1px solid #2f94e0;
+    text-align: center;
+    font-size: 17px;
+}
+.nav-tabs>ul .liClick{
+    width: 104px;
+    height: 20px;
+    background: #0074ff;
+    border: 2px solid #2cabf5;
+    color: white;
+}
+.tab-pane{
+    min-height: 250px;
+    overflow: hidden;
+}
+
+.tab-pane>ul>li{
+    color: white;
+    display: none;
+
+}
+.tab-pane>ul>li>div:first-child{
+
+}
+.filter{
+    overflow: hidden;
+    padding: 28px 0 18px 4%;
+    position: relative;
+    z-index: 99;
+    background: rgba(4, 48, 102, 0.8);
+    filter: alpha(opacity=80);
+    border: 1px solid #2f94e0;
+}
+.filter>ul li{
+    color: #22c9fb;
+    float: left;
+    margin-right: 1%;
+}
+@media (max-width:1400px){
+    .filter>ul li:nth-child(4),.filter>ul li:nth-child(5){
+        width: 30% !important;
+    }
+    .filter>ul li:nth-child(5),.filter>ul li:nth-child(6){
+        margin-top: 10px !important;
+    }
+}
+.filter>ul li>input{
+    width: 108px;
+    outline: none;
+    background: transparent;
+    border:1px solid #075c83;
+    padding: 5px 9px;
+    color: #07a0da;
+    background: #06244b;
+}
+.filter>ul li span,.filter>ul li p{
+    font-size: 16px;
+    margin-right: 5px;
+}
+.filter>ul li ::-webkit-input-placeholder{
+    color:    #07a0da;
+}
+.filter>ul li :-moz-placeholder{
+    color:    #07a0da;
+    opacity:  1;
+}
+.filter>ul li ::-moz-placeholder{
+    color:    #07a0da;
+    opacity:  1;
+}
+.filter>ul li :-ms-input-placeholder{
+    color:    #07a0da;
+}
+.fanwei{
+    position: relative;
+    width: 28%;
+}
+.fanwei input{
+    outline: none;
+    background: transparent;
+    border:1px solid #075c83;
+    padding: 3px 9px;
+    color: #07a0da;
+    background: #06244b;
+    width: 77%;
+    height: 19px;
+}
+.carets,.caretx{
+    position: absolute;
+    right: 1%;
+}
+.carets{
+    top: 58.5%;
+}
+.caretx{
+    top:27%;
+}
+.addMan,.search{
+    padding: 0 13px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 5px;
+    background: #b0d311;
+    color: #012859;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 100;
+    font-weight: 600;
+    font-family: "微软雅黑";
+}
+
+.filter>ul li p{
+    color: #22c9fb;
+    display: inline-block;
+}
+.filter>ul li select{
+    width: 76px;
+    height: 27px;
+    border:1px solid #075c83;
+    background: #06244b;
+    color: #22c9fb;
+    padding-left: 3px;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../images/selectSanjiao.png") no-repeat 59px center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    /*padding-right: 14px;*/
+}
+.filter>ul li select::-ms-expand { display: none; }
+.filter>ul li option{
+    color: #22c9fb;
+    background: #06244b;
+}
+.assetsTab{
+    background: rgba(4, 48, 102, 0.8);
+    filter: alpha(opacity=80);
+    border: 1px solid #2f94e0;
+}
+.assetsTab>tbody>tr th{
+    background: rgba(54, 143, 240, 0.25);
+    /*filter:alpha(opacity=25);*/
+    color: #b0d311;
+}
+.assetsTab>tbody>tr{
+    border-top: 1px solid #1f6ba7;
+}
+.assetsTab>tbody>tr td:nth-child(2),.assetsTab>tbody>tr td:nth-child(4),
+.assetsTab>tbody>tr td:nth-child(6),.assetsTab>tbody>tr td:nth-child(8){
+    color:#ff8463 ;
+    background: rgba(54, 143, 240, 0.25);
+    /*filter:alpha(opacity=25);*/
+}
+.edit{
+    border: none;
+    outline: none;
+    padding: 3px 7px;
+    background: white;
+    color: #012859;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 6px 0 0;
+}
+.affirm{
+    border: 1px solid #b0d311;
+    color: #012859;
+    background: #b0d311;
+    outline: none;
+    padding: 3px 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.page>div:first-child span{
+    color: #22c9fb;
+}
+.addManage{
+    border: none;
+    outline: none;
+    padding: 3px 7px;
+    background: #b0d311;
+    color: #012859;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 0 0 2%;
+}
+.active>a{
+    background:#013d85
+}
+.qiyong span{
+    margin:0 auto;
+    transition: 0.3s;
+    background: url('../images/manage.png') no-repeat 0 2px;
+    width: 18px;height: 18px;
+    display: block
+}
+.qiyong .qiyongB{
+    background-position: bottom;
+}
+.qiyong .qiyongT{
+    background-position: 0 2px;
+}
+.qiyongSpan{
+    cursor: pointer;
+    background: url('../images/qiyong.png') no-repeat center;
+    width: 18px;height: 18px;
+    display: inline-block
+}
+.tingyongSpan{
+    cursor: pointer;
+    background: url('../images/tingyong.png') no-repeat center;
+    width: 18px;height: 18px;
+    display: inline-block
+}
+.qitingyong{
+    border-radius: 100%;
+    opacity: 0.4;
+    filter:alpha(opacity=40);
+}
+.toPage{
+    height: 16px;
+    line-height: 16px;
+    padding: 3px 5px;
+    background: #044392;
+    color: #22c9fb;
+    border: 1px solid #065f86;
+    cursor: pointer
+}
+/*添加资产弹出框*/
+#assetAdd,#assetEdit,#assetScanAdd,#assetScanEdit{
+    width: 600px;
+    border: 1px solid #07b4f0;
+    z-index: 120;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -311px;
+    background: #0b1937;
+    display: none;
+}
+.assetAddTitle>p,.assetEditTitle>p,.assetScanAddTitle>p
+,.assetScanEditTitle>p{
+    /*float: left;*/
+    text-align: center;
+    height: 39px;
+    line-height: 39px;
+    border-bottom: 1px solid #096794;
+}
+.assetAddTitle>span img,.assetEditTitle>span img
+,.assetScanAddTitle>span img,.assetScanEditTitle>span img{
+    cursor: pointer;
+    position: absolute;
+    top: 11px;
+    right: 13px;
+}
+.addManC{
+    margin-bottom: 20px;
+    color: #07b4f0;
+}
+.addManC>span{
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    height: 29px;
+    line-height: 29px;
+    margin-right: 15px;
+}
+.addManC input{
+    border: 1px solid #096794;
+    height: 29px;
+    width: 340px;
+    padding-left: 11px;
+    background: transparent;
+    color:#07b4f0 ;
+    padding-top/*\**/: 5px \9;
+}
+.addManC>select{
+    width: 353px;
+    height: 31px;
+    border:1px solid #075c83;
+    background: #06244b;
+    color: #22c9fb;
+    padding-left: 7px;
+}
+.addManC>select>option{
+    color: #22c9fb;
+}
+.addFooter{
+    margin: 68px 0 30px 226px;
+}
+.addFooter>span{
+    display: inline-block;
+    width: 96px;
+    height: 35px;
+    color: white;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+.quxiao{
+    background: #089dd4;
+    margin-right: 20px;
+}
+.queren{
+    background: #ff6f4c;
+}
+
+
+

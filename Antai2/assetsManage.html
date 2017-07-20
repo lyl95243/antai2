@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<title>资产管理</title>-->
+    <title>安态网络空间威胁感知系统</title>
+    <link href="images/logo1.png" type="image/x-icon" rel="shortcut icon"/>
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/assetsManage.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/placehlod.js"></script>
+    <script type="text/javascript" src="js/bootstrapPaginator.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/assetsManage.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="rightTop">
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+            <p></p>
+        </div>
+        <div class="calendar">
+            <p>今日</p>
+            <span class="caret carett"></span>
+        </div>
+        <div class="calendarXl">
+            <div class="sanjiao">
+                <div></div>
+            </div>
+            <ul class="left">
+                <li>本周</li>
+                <li>本月</li>
+                <li>本年</li>
+                <li>至今</li>
+                <li>截止本周</li>
+                <li>截止本月</li>
+                <li>截止本年</li>
+            </ul>
+            <ul class="left">
+                <li>今日</li>
+                <li>昨日</li>
+                <li>前日</li>
+                <li>上周今日</li>
+                <li>上周</li>
+                <li>上月</li>
+                <li>去年</li>
+            </ul>
+            <ul class="left">
+                <li>最后15分钟</li>
+                <li>最后30分钟</li>
+                <li>最后1小时</li>
+                <li>最后4小时</li>
+                <li>最后12小时</li>
+                <li>最后24小时</li>
+                <li>最后7天</li>
+            </ul>
+            <ul class="left">
+                <li>最后30天</li>
+                <li>最后60天</li>
+                <li>最后90天</li>
+                <li>最后6个月</li>
+                <li>最后1周</li>
+                <li>最后2周</li>
+                <li>最后3周</li>
+            </ul>
+        </div>
+        <div class="calendarTime">
+            2017/06/01-2017/07/01 <span class="caret"></span>
+        </div>
+    </div>
+    <!--左部导航-->
+    <div class="left leftNav">
+        <div class="leftNavCon">
+            <div class="nav">
+                <ul>
+                    <li onclick="window.open('index.html','_self');">
+                        <div class="navText">
+                            <img src="images/icon_outline.png" alt="">
+                            <span>概要</span>
+                        </div>
+                        <div class="dianji"></div>
+                    </li>
+                    <li>
+                        <div class="navText">
+                            <img src="images/icon_threatanalysis.png" alt="">
+                            <span>威胁分析</span>
+                        </div>
+                        <div class="dianji"></div>
+                        <div class="navxl">
+                            <a href="threatAnalysis.html" target="_self">威胁事件分析</a>
+                            <a href="alertLog.html" target="_self">告警日志</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navText">
+                            <img src="images/icon_logquery.png" alt="">
+                            <span>网络分析</span>
+                        </div>
+                        <div class="dianji"></div>
+                        <div class="navxl">
+                            <a href="accessLog.html" target="_self">网络会话</a>
+                            <a href="DNSQueryLog.html" target="_self">DNS查询分析</a>
+                            <a href="flowAnalysis.html" target="_self">流量分析</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navText">
+                            <img src="images/icon_assetsmanag.png" alt="">
+                            <span>资产管理</span>
+                        </div>
+                        <div class="dianji liClick"></div>
+                    </li>
+                    <li style="height:2px;border-bottom: 2px solid #0c2662"></li>
+                    <li>
+                        <div class="navText">
+                            <img src="images/icon_systemmanag.png" alt="">
+                            <span>系统管理</span>
+                        </div>
+                        <div class="dianji"></div>
+                        <div class="navxl">
+                            <a href="systemView.html" target="_self">系统概览</a>
+                            <a href="systemSet.html" target="_self">系统设置</a>
+                            <a href="systemUpgrade.html" target="_self">系统升级</a>
+                            <a href="userManage.html" target="_self">用户管理</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--右部内容-->
+    <div class="left rightWrap">
+        <div class="rightCon">
+            <div class="zuos"></div>
+            <div class="zuox"></div>
+            <div class="yous"></div>
+            <div class="youx"></div>
+            <div class="assetsTitle">
+                资 产 管 理
+                <div class="leftBor"></div>
+                <div class="rightBor"></div>
+            </div>
+            <div class="assetsCon">
+                <div class="nav-tabs">
+                    <ul>
+                        <li class="liClick">资产列表</li>
+                        <li style="border-right: 1px solid #2f94e0">自动识别资产</li>
+                    </ul>
+                </div>
+                <div class="tab-pane">
+                    <ul>
+                        <li style="display:block">
+                           <div>
+                               <!--筛选项-->
+                               <div class="filter">
+                                   <ul>
+                                       <li>
+                                           <span>资产IP</span>
+                                           <input type="text" placeholder="输入资产IP" id="ip">
+                                       </li>
+                                       <li>
+                                           <p>存活状态</p>
+                                           <select name="" id="live">
+                                               <option value="">存活状态</option>
+                                               <option value="">在线</option>
+                                               <option value="">不在线</option>
+                                           </select>
+                                       </li>
+                                       <li>
+                                           <span>类型</span>
+                                           <input type="text" placeholder="输入类型" id="type">
+                                       </li>
+                                       <li>
+                                           <span>所有者</span>
+                                           <input type="text" placeholder="输入所有者" id="owner">
+                                       </li>
+                                       <li>
+                                           <span>所属部门</span>
+                                           <input type="text" placeholder="输入所属部门" id="dep">
+                                       </li>
+                                       <li>
+                                           <p>状态</p>
+                                           <select name="" id="status">
+                                               <option value="">状态</option>
+                                               <option value="">已确认</option>
+                                               <option value="">未确认</option>
+                                           </select>
+                                       </li>
+                                       <li>
+                                           <button class="search">查找</button>
+                                       </li>
+                                       <li>
+                                           <button class="addMan" id="addMan">添加资产</button>
+                                       </li>
+                                   </ul>
+                               </div>
+                               <div style="min-height: 380px">
+                                   <table class="tableCom assetsTab" id="assetsTable"></table>
+                               </div>
+                           </div>
+                            <div style="margin: 30px 0 0 0" class="page">
+                                <div class="right">
+                                    <span style="margin-top: 2px">共 <span class="pagetotal"></span> 页</span>
+                                    <span style="padding: 0 15px">到第 <input type="text" value="1" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
+                                    <span class="toPage" id="assetsTopage">确定</span>
+                                </div>
+                                <div class="pagination" id="yema"></div>
+                            </div>
+                            <!--添加资产弹出框-->
+                            <div id="assetAdd">
+                                <div class="assetAddTitle">
+                                    <p>添加资产</p>
+                                    <span><img src="images/close.png" alt=""></span>
+                                </div>
+                                <div style="margin-top: 30px;">
+                                    <div class="addManC" id="addIP">
+                                        <span>IP:</span>
+                                        <input type="text">
+                                    </div>
+                                    <div class="addManC" id="addMAC">
+                                        <span>MAC:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="addLive" style="position:relative">
+                                        <span>存活状态:</span>
+                                        <select name="">
+                                            <option value="">在线</option>
+                                            <option value="">不在线</option>
+                                        </select>
+                                    </div>
+                                    <div class="addManC" id="addType">
+                                        <span>类型:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="addOwner">
+                                        <span>所有者:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="addDep">
+                                        <span>所属部门:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="addStatus" style="position:relative">
+                                        <span>状态:</span>
+                                        <select name="">
+                                            <option value="">确认</option>
+                                            <option value="">未确认</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="addFooter">
+                                    <span class="quxiao" id="addQuxiao">取消</span>
+                                    <span class="queren" id="addAffirm">确认</span>
+                                </div>
+                            </div>
+                            <!--编辑资产弹出框-->
+                            <div id="assetEdit">
+                                <div class="assetEditTitle">
+                                    <p>编辑资产</p>
+                                    <span><img src="images/close.png" alt=""></span>
+                                </div>
+                                <div style="margin-top: 30px;">
+                                    <div class="addManC" id="editIp">
+                                        <span>IP:</span>
+                                        <input type="text">
+                                    </div>
+                                    <div class="addManC" id="editMac">
+                                        <span>MAC:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="editLive" style="position:relative">
+                                        <!--<input type="text" style="position: absolute;top: 0;left: 149px;border: none;outline: none;width: 54px;height: 31px;" disabled>-->
+                                        <span>存活状态:</span>
+                                        <select name="" style="position: relative">
+                                            <!--<option value="">存活状态</option>-->
+                                            <option value="在线">在线</option>
+                                            <option value="不在线">不在线</option>
+                                        </select>
+                                    </div>
+                                    <div class="addManC" id="editType">
+                                        <span>类型:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="editOwner">
+                                        <span>所有者:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="editDep">
+                                        <span>所属部门:</span>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="addManC" id="editStatus" style="position:relative">
+                                        <span>状态:</span>
+                                        <select name="">
+                                            <!--<option value="">状态</option>-->
+                                            <option value="已确认">确认</option>
+                                            <option value="未确认">未确认</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="addFooter">
+                                    <span class="quxiao" id="editQuxiao">取消</span>
+                                    <span class="queren" id="editAffirm">确认</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                           <div>
+                              <div style="min-height: 410px">
+                                  <table class="tableCom assetsTab" id="scanManTab">
+
+                                  </table>
+                              </div>
+                               <div style="margin: 30px 0 0 0" class="page">
+                                   <div class="right">
+                                       <span style="margin-top: 2px">共 <span class="pageScantotal"></span> 页</span>
+                                       <span style="padding: 0 15px">到第 <input type="text" value="1" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
+                                       <span class="toPage" id="assetsScanTopage">确定</span>
+                                   </div>
+                                   <div class="pagination" id="yemaa"></div>
+                               </div>
+                               <div class="addManage left" id="scanAdd">
+                                   添加资产
+                               </div>
+                               <!--自动识别添加弹出框-->
+                               <div id="assetScanAdd">
+                                   <div class="assetScanAddTitle">
+                                       <p>添加识别对象</p>
+                                       <span><img src="images/close.png" alt=""></span>
+                                   </div>
+                                   <p style="width: 80%;margin: 20px auto 0;">当起始端口和终止端口都填写0的时候，将只识别IP的存活。当起始端
+                                       口和终止端口都填-1的时候，将识别0-65535内所有端口。资产类型和
+                                       所属部门可以为空！</p>
+                                   <div style="margin-top: 30px;">
+                                       <div class="addManC" id="startIP">
+                                           <span>起始IP:</span>
+                                           <input type="text">
+                                       </div>
+                                       <div class="addManC" id="endIP">
+                                           <span>终止IP:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="startPort" style="position:relative">
+                                           <span>起始端口:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="endPort">
+                                           <span>终止端口:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="scanType">
+                                           <span>资产类型:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="scanDep">
+                                           <span>所属部门:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                   </div>
+                                   <div class="addFooter">
+                                       <span class="quxiao" id="scanAddQuxiao">取消</span>
+                                       <span class="queren" id="scanAddAffirm">确认</span>
+                                   </div>
+                               </div>
+                               <!--自动识别编辑弹出框-->
+                               <div id="assetScanEdit">
+                                   <div class="assetScanEditTitle">
+                                       <p>编辑识别对象</p>
+                                       <span><img src="images/close.png" alt=""></span>
+                                   </div>
+                                   <div style="margin-top: 30px;">
+                                       <div class="addManC" id="startIPP">
+                                           <span>起始IP:</span>
+                                           <input type="text">
+                                       </div>
+                                       <div class="addManC" id="endIPP">
+                                           <span>终止IP:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="startPortt" style="position:relative">
+                                           <span>起始端口:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="endPortt">
+                                           <span>终止端口:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="scanTypee">
+                                           <span>资产类型:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                       <div class="addManC" id="scanDepp">
+                                           <span>所属部门:</span>
+                                           <input type="text" placeholder="">
+                                       </div>
+                                   </div>
+                                   <div class="addFooter">
+                                       <span class="quxiao" id="scanEditQuxiao">取消</span>
+                                       <span class="queren" id="scanEditAffirm">确认</span>
+                                   </div>
+                               </div>
+                           </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
