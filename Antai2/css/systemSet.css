@@ -124,13 +124,13 @@
 }
 .inter{
     position: absolute;
-    top: 25px;
+    top: 21px;
     left: 250px;
 }
 .interBg>div span{
     display: inline-block;
-    width: 19px;
-    height: 19px;
+    width: 22px;
+    height: 22px;
     margin: 3px 3px 0 0;
 }
 #systemTab > tbody > .trClick{
@@ -232,7 +232,9 @@
 .active>a{
     background:#013d85
 }
-
+.page{
+    color: #22c9fb;
+}
 
 
 

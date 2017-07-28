@@ -4,9 +4,16 @@
 $(function () {
     var flowChart=echarts.init(document.getElementById("flowChart"));
     var flowfenbuChart=echarts.init(document.getElementById("flowfenbuChart"));
+    var xieyiflowChart=echarts.init(document.getElementById("xieyiflowChart"));
     var  option01={
         tooltip: {
             trigger: 'axis'
+        },
+        grid: {
+            left: '5%',
+            right: '4%',
+            bottom: '18%',
+            containLabel: true
         },
         xAxis:  {
             // type: 'category',
@@ -77,6 +84,12 @@ $(function () {
         tooltip: {
             trigger: 'item'
         },
+        grid: {
+            left: '5%',
+            right: '4%',
+            bottom: '18%',
+            containLabel: true
+        },
         xAxis: [
             {
                 // type: 'category',
@@ -132,8 +145,84 @@ $(function () {
             }
         ]
     };
+    var  option03={
+        tooltip: {
+            trigger: 'axis'
+        },
+        grid: {
+            left: '5%',
+            right: '4%',
+            bottom: '18%',
+            containLabel: true
+        },
+        xAxis:  {
+            // type: 'category',
+            axisLabel: {
+                formatter: '{value}',
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#338ed7',
+                }
+            },
+            boundaryGap: false,
+            splitLine:{show: false},
+            data: ['06/01','06/02','06/03','06/04','06/05','06/06','06/07','06/08','06/09','06/10','06/11','06/12','06/13','06/14']
+        },
+        yAxis: {
+            // type: 'value',
+            axisLabel: {
+                formatter: '{value}',
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'#338ed7',
+                }
+            },
+            splitLine:{show: false},
+        },
+        series: [
+            {
+                name:'HTTP',
+                type:'line',
+                itemStyle: {
+                    normal: {
+                        color:'#07b4f0',
+                    },
+                },
+                data:[400, 1100, 500, 1200,1500,700, 1000,556,482,923,482,675,321,258],
+            },
+            {
+                name:'MAIL',
+                type:'line',
+                itemStyle: {
+                    normal: {
+                        color:'#ff3058',
+                    },
+                },
+                data:[600, 800,750,1111,890, 560, 950,546,125,324,857,166,842,741],
+            },
+            {
+                name:'DNS',
+                type:'line',
+                itemStyle: {
+                    normal: {
+                        color:'#b0d311',
+                    },
+                },
+                data:[123, 456,789,654,321, 951, 753,852,147,753,357,159,846,351],
+            },
+        ]
+    };
     flowChart.setOption(option01)
     flowfenbuChart.setOption(option02)
+    xieyiflowChart.setOption(option03)
 
 
 

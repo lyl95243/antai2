@@ -1,15 +1,15 @@
 .container{
-    height: 2040px;
+    height: 2372px;
 }
 .leftNavCon{
-    height: 1957px;
+    height: 2289px;
 }
 .leftNav{
-    height: 1960px;
+    height: 2292px;
 }
 .rightCon{
     width: 96%;
-    height: 1833px;
+    height: 2199px;
     margin: 2%;
     border:1px solid #047afe;
     position: relative;
@@ -74,7 +74,8 @@
 .filter>ul li{
     color: #22c9fb;
     float: left;
-    margin-right: 4.5%;
+    margin-right: 0.5%;
+    height: 29px;
 }
 @media (max-width:1400px){
     .tendencyChart{
@@ -89,7 +90,7 @@
 }
 .filter>ul li>input{
     outline: none;
-    /*width: 108px;*/
+    width: 80px;
     background: transparent;
     border:1px solid #075c83;
     padding: 5px 9px;
@@ -116,21 +117,22 @@
 }
 .fanwei{
     position: relative;
-    width: 28%;
+    width: 21%;
 }
 .fanwei input{
     outline: none;
     background: transparent;
     border:1px solid #075c83;
-    padding: 3px 9px;
+    padding: 3px 0 3px 2px;
     color: #07a0da;
     background: #06244b;
-    width: 77%;
+    width: 90%;
     height: 19px;
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 .carets,.caretx{
     position: absolute;
-    right: 1%;
+    right: -3%;
 }
 .carets{
     top: 58.5%;
@@ -167,9 +169,17 @@
     border:1px solid #075c83;
     background: #06244b;
     color: #22c9fb;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../images/selectSanjiao.png") no-repeat 59px center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
 }
 .filter>ul li option{
     color: #22c9fb;
+    background: #06244b;
 }
 .flowChartTitle{
     width: 20.4%;
@@ -191,26 +201,58 @@
     left: -10%;
 }
 .flowChart{
-    width: 95%;
+    width: 100%;
     height: 280px;
     position: relative;
     background-size: 100%;
+    /*overflow: hidden;*/
 }
-#flowChart{
+.flowChartTime{
     position: absolute;
-    left: -1%;
+    right: 142px;
+    top:-17px;
+    z-index: 99;
+}
+.flowChartTime>p,.filter>ul li p{
+    color: #22c9fb;
+    display: inline-block;
+}
+.flowChartTime>select{
+    width: 76px;
+    height: 27px;
+    border:1px solid #075c83;
+    background: #06244b;
+    color: #22c9fb;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../images/selectSanjiao.png") no-repeat 59px center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+}
+.flowChartTime>select>option{
+    color: #22c9fb;
+    background: #06244b;
+}
+#flowChart,#flowfenbuChart{
+    position: absolute;
+    left: 0%;
     top: 0;
 }
-.TDP,.UDP,.total,.flow{
+.TDP,.UDP,.total,.flow,.HTTP,.POP3,.IMAP,.SMTP,.DNS{
     color: white;
     position: absolute;
+    width: 70px;
+    text-align: center;
     top:0;
-    padding:3px 8px;
+    padding:3px 0px;
+    font-size: 14px;
 }
-.TDP{ right:20%;background: #07b4f0}
+.TDP{ right:19%;background: #07b4f0}
 .UDP{ right:14%;background: #ff3058}
 .total{ right:9%;background: #b0d311}
-.flow{left: 7%;top: 6%}
+.flow{left: 4.5%;top: 9%}
 .accessLoTotal{
     width: 30%;
     float: left;
@@ -241,16 +283,11 @@
     height: 42px;
     background: url("../images/bg_attackBack.png");
 }
-.IPInforList>tbody>tr>td:nth-child(1),.IPInforList>tbody>tr>td:nth-child(3)
-,.IPInforList>tbody>tr>td:nth-child(5),.IPInforList>tbody>tr>td:nth-child(7)
-,.IPInforList>tbody>tr>td:nth-child(9),.IPInforList>tbody>tr>td:nth-child(11)
-,.IPInforList>tbody>tr>td:nth-child(13),.sourceIP>tbody>tr>td:nth-child(1)
+.IPInforList>tbody>tr>td:nth-child(odd),.sourceIP>tbody>tr>td:nth-child(1)
 ,.sourceIP>tbody>tr>td:nth-child(3){
     background: #012859;
 }
-.IPInforList>tbody>tr>td:nth-child(2),.IPInforList>tbody>tr>td:nth-child(4)
-,.IPInforList>tbody>tr>td:nth-child(6),.IPInforList>tbody>tr>td:nth-child(8)
-,.IPInforList>tbody>tr>td:nth-child(10),.IPInforList>tbody>tr>td:nth-child(12)
+.IPInforList>tbody>tr>td:nth-child(even)
 ,.sourceIP>tbody>tr>td:nth-child(2){
     background: #014293;
     color: #ff8463;

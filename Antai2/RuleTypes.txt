@@ -1,0 +1,14 @@
+WebServer,WEB服务器攻击
+WebServices,WEB服务攻击
+RCE,远程代码执行
+IPRep,IP信誉
+DirTraversal,目录遍历
+Scan,扫描
+LFI,本地文件包含
+RFI,远程文件包含
+CSRF,跨站请求伪造
+XSS,跨站脚本攻击
+SQLI,SQL注入攻击
+WebShell,WebShell
+AVCHECK,病毒
+Custom,用户自定义检测

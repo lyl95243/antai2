@@ -5,11 +5,17 @@
     <!--<title>web详情</title>-->
     <title>安态网络空间威胁感知系统</title>
     <link href="images/logo1.png" type="image/x-icon" rel="shortcut icon"/>
+    <link rel="stylesheet" href="syntaxhighlighter_3.0.83/styles/shCore.css">
+    <link rel="stylesheet" href="syntaxhighlighter_3.0.83/styles/shThemeMidnight.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/webDetails.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
+    <script src="syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="syntaxhighlighter_3.0.83/scripts/shBrushXml.js"></script>
+    <script>SyntaxHighlighter.all();</script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/webDetails.js"></script>
     <!--[if lt IE 9]>
@@ -70,7 +76,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" placeholder="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" placeholder="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -92,8 +106,8 @@
                         </div>
                         <div class="dianji liClick"></div>
                         <div class="navxl" style="display: block">
-                            <a href="threatAnalysis.html" target="_self" style="background:#072559;color: #07b4f0;">威胁事件分析</a>
-                            <a href="alertLog.html" target="_self">告警日志</a>
+                            <a href="threatAnalysis.html" target="_self">威胁事件分析</a>
+                            <a href="alertLog.html" target="_self" style="background:#072559;color: #07b4f0;">告警日志</a>
                         </div>
                     </li>
                     <li>
@@ -148,19 +162,19 @@
             <table class="tableCom webTable">
                 <tr>
                     <td>请求方法</td>
-                    <td>GET</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>请求URL</td>
-                    <td>adferjfoinxcvjlidofjgo</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>协议版本</td>
-                    <td>HTTP/1.2</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>响应状态码</td>
-                    <td>400</td>
+                    <td></td>
                 </tr>
             </table>
             <div class="webBottom">
@@ -168,80 +182,53 @@
                     <ul>
                         <li class="liClick">头部信息</li>
                         <li>请求体</li>
-                        <li>相应体</li>
-                        <li style="border-right:1px solid #2f94e0">相应页面</li>
+                        <li>响应体</li>
+                        <li style="border-right:1px solid #2f94e0">渲染页面</li>
                     </ul>
                 </div>
                 <div class="tab-pane">
-                   <ul>
-                       <li style="display: block" class="reqHead">
-                           <div>
-                               <p>请求头</p>
-                               <div>
-                                   <table class="reqHeadTable">
-                                       <tr>
-                                           <td>Cookie</td>
-                                           <td>adfasdfdf</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Accept</td>
-                                           <td>Acsdfsdfcvx</td>
-                                       </tr>
-                                       <tr>
-                                           <td>User-Agent</td>
-                                           <td>Uasdfwefdfgfg</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Connection</td>
-                                           <td>Conasdfasdfsfxcbc</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Referer</td>
-                                           <td>Rsdfcxrgwert</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Host</td>
-                                           <td>Hregxxcvb</td>
-                                       </tr>
-                                   </table>
-                               </div>
-                           </div>
-                           <div>
-                               <p>响应头</p>
-                               <div>
-                                   <table class="reqHeadTable">
-                                       <tr>
-                                           <td>Cookie</td>
-                                           <td>adfasdfdf</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Accept</td>
-                                           <td>Acsdfsdfcvx</td>
-                                       </tr>
-                                       <tr>
-                                           <td>User-Agent</td>
-                                           <td>Uasdfwefdfgfg</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Connection</td>
-                                           <td>Conasdfasdfsfxcbc</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Referer</td>
-                                           <td>Rsdfcxrgwert</td>
-                                       </tr>
-                                       <tr>
-                                           <td>Host</td>
-                                           <td>Hregxxcvb</td>
-                                       </tr>
-                                   </table>
-                               </div>
-                           </div>
-                       </li>
-                       <li>请求体</li>
-                       <li>相应体</li>
-                       <li>相应页面</li>
-                   </ul>
+                    <ul>
+                        <li style="display: block" class="reqHead">
+                            <div>
+                                <p>请求头</p>
+                                <div class="text">
+                                    <table class="reqHeadTable">
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <p>响应头</p>
+                                <div class="text">
+                                    <table class="reqHeadTable">
+
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="textWrap">
+                                <div class="text reqBody">
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="textWrap">
+                                <div class="text resBody">
+                                   <pre style="font-size: 16px;" name="code" class="brush:xml">
+                                   </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="xiangyingyemian">
+                                <div class="textWrap" style="max-height: 750px;padding: 20px;overflow: auto">
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

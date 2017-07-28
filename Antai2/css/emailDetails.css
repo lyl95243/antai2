@@ -1,6 +1,6 @@
 .rightCon{
     width: 96%;
-    height: 1094px;
+    /*height: 1176px;*/
     margin: 2%;
     border:1px solid #047afe;
     position: relative;
@@ -61,17 +61,19 @@
     margin: 2% 2.5%;
     border: 1px solid #2f94e0;
 }
-.emailTable>tbody>tr td:nth-child(1){
+.emailTable>tbody>tr td:first-child{
     color: #22c9fb;
     width: 20%;
     font-size: 17px;
 }
 .emailTable>tbody>tr td{padding: 7px}
-.emailTable>tbody>tr td:nth-child(2){
+.emailTable>tbody>tr td:last-child{
     color: #fff;
     border-left: 1px solid #2f94e0;
     text-align: left;
     padding-left: 35px;
+    word-wrap:break-word;
+    word-break:break-all;
 }
 .emailTable>tbody>tr:nth-child(odd){
     background: #022b5d;
@@ -115,7 +117,20 @@
 .attachment>ul li span:nth-child(2) a{
     color: #22c9fb;
 }
-
+#attchments{
+    color: #22c9fb;
+    padding: 30px 0 0 30px;
+}
+.rightConM{
+    min-height: 365px;
+    overflow: auto;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 3px;
+    color: #22c9fb;
+    max-height: 500px;
+    overflow: auto
+}
 
 
 

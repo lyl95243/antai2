@@ -24,7 +24,7 @@ $(function () {
     var pagenumber = 1;
     function manList(pagenum) {
         Ajax(
-            "/smarteye/api/search/devProperty/devPropertyList?ip=&owner=&live=&type=&dep=&status=&page="+pagenum+"&pageSize=10",
+            "/smarteye/api/search/assetsManage/assetsList?ip=&owner=&live=&type=&dep=&status=&page="+pagenum+"&pageSize=10",
             "get",
             "json",
             "",
@@ -87,7 +87,7 @@ $(function () {
                         }, onPageClicked: function (event, originaEvent, type, page) {
                             pagenumber = page
                             Ajax(
-                                "/smarteye/api/search/devProperty/devPropertyList?ip=&owner=&live=&type=&dep=&status=&page=" + page + "&pageSize=10",
+                                "/smarteye/api/search/assetsManage/assetsList?ip=&owner=&live=&type=&dep=&status=&page=" + page + "&pageSize=10",
                                 "get",
                                 "json",
                                 "",
@@ -181,7 +181,7 @@ $(function () {
                         addStatuss = 0
                     }
                     Ajax(
-                        "/smarteye/api/search/devProperty/addDevProperty?ip=" + addIp + "&mac=" + addMac + "&live=" + addLivee + "&type=" + addType + "&owner=" + addOwner + "&dep=" + addDep + "&status=" + addStatuss + "",
+                        "/smarteye/api/search/assetsManage/addAssets?ip=" + addIp + "&mac=" + addMac + "&live=" + addLivee + "&type=" + addType + "&owner=" + addOwner + "&dep=" + addDep + "&status=" + addStatuss + "",
                         "post",
                         "json",
                         "",
@@ -279,7 +279,7 @@ $(function () {
                             newStatus = 0
                         }
                         Ajax(
-                            "/smarteye/api/search/devProperty/updateDevProperty?oldIp=" + oldIp + "&oldMac=" + oldMac + "&oldLive=" + oldLivee + "&oldType=" + oldType + "&oldOwner=" + oldOwner + "&oldDep=" + oldDep + "&oldStatus=" + oldStatuss + "&newIp=" + newIp + "&newMac=" + newMac + "&newLive=" + newLive + "&newType=" + newType + "&newOwner=" + newOwner + "&newDep=" + newDep + "&newStatus=" + newStatus + "",
+                            "/smarteye/api/search/assetsManage/updateAssets?oldIp=" + oldIp + "&oldMac=" + oldMac + "&oldLive=" + oldLivee + "&oldType=" + oldType + "&oldOwner=" + oldOwner + "&oldDep=" + oldDep + "&oldStatus=" + oldStatuss + "&newIp=" + newIp + "&newMac=" + newMac + "&newLive=" + newLive + "&newType=" + newType + "&newOwner=" + newOwner + "&newDep=" + newDep + "&newStatus=" + newStatus + "",
                             "post",
                             "json",
                             "",
@@ -336,7 +336,7 @@ $(function () {
         };
         if(confirm('确定要删除吗？')) {
             Ajax(
-                "/smarteye/api/search/devProperty/delDevProperty?ip=" + editIp + "&mac=" + editMac + "&live=" + editLive + "&type=" + editType + "&owner=" + editOwner + "&dep=" + editDep + "&status=" + editStatus + "",
+                "/smarteye/api/search/assetsManage/delAssets?ip=" + editIp + "&mac=" + editMac + "&live=" + editLive + "&type=" + editType + "&owner=" + editOwner + "&dep=" + editDep + "&status=" + editStatus + "",
                 "post",
                 "json",
                 "",
@@ -376,7 +376,7 @@ $(function () {
                 oldLivee = false
             }
             Ajax(
-                "/smarteye/api/search/devProperty/updateDevProperty?oldIp=" + oldIp + "&oldMac=" + oldMac + "&oldLive=" + oldLivee + "&oldType=" + oldType + "&oldOwner=" + oldOwner + "&oldDep=" + oldDep + "&oldStatus=0&newIp=" + oldIp + "&newMac=" + oldMac + "&newLive=" + oldLivee + "&newType=" + oldType + "&newOwner=" + oldOwner + "&newDep=" + oldDep + "&newStatus=1",
+                "/smarteye/api/search/assetsManage/updateAssets?oldIp=" + oldIp + "&oldMac=" + oldMac + "&oldLive=" + oldLivee + "&oldType=" + oldType + "&oldOwner=" + oldOwner + "&oldDep=" + oldDep + "&oldStatus=0&newIp=" + oldIp + "&newMac=" + oldMac + "&newLive=" + oldLivee + "&newType=" + oldType + "&newOwner=" + oldOwner + "&newDep=" + oldDep + "&newStatus=1",
                 "post",
                 "json",
                 "",
@@ -444,7 +444,7 @@ $(function () {
             status = 0
         };
         Ajax(
-            "/smarteye/api/search/devProperty/devPropertyList?ip=" + ip + "&owner=" + owner + "&live=" + live + "&type=" + type + "&dep=" + dep + "&status=" + status + "&page=1&pageSize=10",
+            "/smarteye/api/search/assetsManage/assetsList?ip=" + ip + "&owner=" + owner + "&live=" + live + "&type=" + type + "&dep=" + dep + "&status=" + status + "&page=1&pageSize=10",
             "get",
             "json",
             "",
@@ -561,7 +561,7 @@ $(function () {
     var scanTableTrTdStart=[],scanTableTrTdEnd=[];
     function scanManList(pagenum) {
         Ajax(
-            "/smarteye/api/search/devPropertyScan/devPropertyScanList?enable=&startIP=&endIP=&startPort=&endPort=&type=&dep=&status=&page=" + pagenum + "&pageSize=10",
+            "/smarteye/api/search/assetsManage/assetsScanList?enable=&startIP=&endIP=&startPort=&endPort=&type=&dep=&status=&page=" + pagenum + "&pageSize=10",
             "get",
             "json",
             "",
@@ -624,7 +624,7 @@ $(function () {
                             pageNum = page;
                             scanTableTrTdStart=[];scanTableTrTdEnd=[];
                             Ajax(
-                                "/smarteye/api/search/devPropertyScan/devPropertyScanList?enable=&startIP=&endIP=&startPort=&endPort=&type=&dep=&status=&page=" + page + "&pageSize=10",
+                                "/smarteye/api/search/assetsManage/assetsScanList?enable=&startIP=&endIP=&startPort=&endPort=&type=&dep=&status=&page=" + page + "&pageSize=10",
                                 "get",
                                 "json",
                                 "",
@@ -671,7 +671,7 @@ $(function () {
         scanManList(toPage);
         qitingqiehuan();
         qiting();
-    })
+    });
     // 自动识别添加资产
     $("#scanAdd").click(function () {
         $("#assetScanAdd").fadeIn()
@@ -733,7 +733,7 @@ $(function () {
             }
             if(q){
                 Ajax(
-                    "/smarteye/api/search/devPropertyScan/addDevPropertyScan?enable=true&startIP=" + startIP + "&endIP=" + endIP + "&startPort=" + startPort + "&endPort=" + endPort + "&type=" + scanType + "&dep=" + scanDep + "&status=",
+                    "/smarteye/api/search/assetsManage/addAssetsScan?enable=true&startIP=" + startIP + "&endIP=" + endIP + "&startPort=" + startPort + "&endPort=" + endPort + "&type=" + scanType + "&dep=" + scanDep + "&status=",
                     "post",
                     "json",
                     "",
@@ -840,7 +840,7 @@ $(function () {
             }
             if(f){
                 Ajax(
-                    "/smarteye/api/search/devPropertyScan/updateDevPropertyScan?oldEnable=" + oldEnablee + "&oldStartIP=" + oldStartIp + "&oldEndIP=" + oldEndIp + "&oldStartPort=" + oldStartPort + "&oldEndPort=" + oldEndPort + "&oldType=" + oldScanType + "&oldDep=" + oldScanDep + "&oldStatus=&newEnable=" + oldEnablee + "&newStartIP=" + newStartIP + "&newEndIP=" + newEndIP + "&newStartPort=" + newStartPort + "&newEndPort=" + newEndPort + "&newType=" + scanType + "&newDep=" + scanDep + "&newStatus=",
+                    "/smarteye/api/search/assetsManage/updateAssetsScan?oldEnable=" + oldEnablee + "&oldStartIP=" + oldStartIp + "&oldEndIP=" + oldEndIp + "&oldStartPort=" + oldStartPort + "&oldEndPort=" + oldEndPort + "&oldType=" + oldScanType + "&oldDep=" + oldScanDep + "&oldStatus=&newEnable=" + oldEnablee + "&newStartIP=" + newStartIP + "&newEndIP=" + newEndIP + "&newStartPort=" + newStartPort + "&newEndPort=" + newEndPort + "&newType=" + scanType + "&newDep=" + scanDep + "&newStatus=",
                     "post",
                     "json",
                     "",
@@ -959,7 +959,7 @@ $(function () {
         };
         if(confirm("确定删除吗？")){
             Ajax(
-                "/smarteye/api/search/devPropertyScan/delDevPropertyScan?enable=" + Enablee + "&startIP=" + startIp + "&endIP=" + endIp + "&startPort=" + startPort + "&endPort=" + endPort + "&type=" + type + "&dep=" + dep + "&status=",
+                "/smarteye/api/search/assetsManage/delAssetsScan?enable=" + Enablee + "&startIP=" + startIp + "&endIP=" + endIp + "&startPort=" + startPort + "&endPort=" + endPort + "&type=" + type + "&dep=" + dep + "&status=",
                 "post",
                 "json",
                 "",
@@ -980,9 +980,7 @@ $(function () {
         }
 
     })
-
     qitingqiehuan()
-
 
 })
 
@@ -1011,7 +1009,7 @@ function qitingqiehuan() {
             oldScanType = scanTd.eq(5).html(),
             oldScanDep = scanTd.eq(6).html();
         Ajax(
-            "/smarteye/api/search/devPropertyScan/updateDevPropertyScan?oldEnable=true&oldStartIP=" + oldStartIp + "&oldEndIP=" + oldEndIp + "&oldStartPort=" + oldStartPort + "&oldEndPort=" + oldEndPort + "&oldType=" + oldScanType + "&oldDep=" + oldScanDep + "&oldStatus=&newEnable=false&newStartIP=" + oldStartIp + "&newEndIP=" + oldEndIp + "&newStartPort=" + oldStartPort + "&newEndPort=" + oldEndPort + "&newType=" + oldScanType + "&newDep=" + oldScanDep + "&newStatus=",
+            "/smarteye/api/search/assetsManage/updateAssetsScan?oldEnable=true&oldStartIP=" + oldStartIp + "&oldEndIP=" + oldEndIp + "&oldStartPort=" + oldStartPort + "&oldEndPort=" + oldEndPort + "&oldType=" + oldScanType + "&oldDep=" + oldScanDep + "&oldStatus=&newEnable=false&newStartIP=" + oldStartIp + "&newEndIP=" + oldEndIp + "&newStartPort=" + oldStartPort + "&newEndPort=" + oldEndPort + "&newType=" + oldScanType + "&newDep=" + oldScanDep + "&newStatus=",
             "post",
             "json",
             "",
@@ -1036,7 +1034,7 @@ function qitingqiehuan() {
             oldScanType = scanTd.eq(5).html(),
             oldScanDep = scanTd.eq(6).html();
         Ajax(
-            "/smarteye/api/search/devPropertyScan/updateDevPropertyScan?oldEnable=false&oldStartIP=" + oldStartIp + "&oldEndIP=" + oldEndIp + "&oldStartPort=" + oldStartPort + "&oldEndPort=" + oldEndPort + "&oldType=" + oldScanType + "&oldDep=" + oldScanDep + "&oldStatus=&newEnable=true&newStartIP=" + oldStartIp + "&newEndIP=" + oldEndIp + "&newStartPort=" + oldStartPort + "&newEndPort=" + oldEndPort + "&newType=" + oldScanType + "&newDep=" + oldScanDep + "&newStatus=",
+            "/smarteye/api/search/assetsManage/updateAssetsScan?oldEnable=false&oldStartIP=" + oldStartIp + "&oldEndIP=" + oldEndIp + "&oldStartPort=" + oldStartPort + "&oldEndPort=" + oldEndPort + "&oldType=" + oldScanType + "&oldDep=" + oldScanDep + "&oldStatus=&newEnable=true&newStartIP=" + oldStartIp + "&newEndIP=" + oldEndIp + "&newStartPort=" + oldStartPort + "&newEndPort=" + oldEndPort + "&newType=" + oldScanType + "&newDep=" + oldScanDep + "&newStatus=",
             "post",
             "json",
             "",

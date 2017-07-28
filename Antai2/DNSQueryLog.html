@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/DNSQueryLog.js"></script>
     <!--[if lt IE 9]>
@@ -70,7 +71,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -141,7 +150,7 @@
             <div class="yous"></div>
             <div class="youx"></div>
             <div class="DNSQueryLogTitle">
-                DNS 查 询 日 志
+                DNS 查 询 分 析
                 <div class="leftBor"></div>
                 <div class="rightBor"></div>
             </div>
@@ -304,10 +313,9 @@
             <!--DNS查询日志追踪-->
             <div style="margin-top: 35px">
                 <div class="IPDomainTitle">
-                    DNS查询日志追踪
+                    DNS查询分析追踪
                     <div class="line"></div>
                 </div>
-
                 <div>
                     <table class="tableCom IPInforList">
                         <tr class="tableTh">
@@ -491,7 +499,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

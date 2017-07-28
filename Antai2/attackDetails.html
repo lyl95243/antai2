@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/attackDetails.js"></script>
     <!--[if lt IE 9]>
@@ -70,7 +71,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -178,6 +187,7 @@
                     </tr>
                 </table>
             </div>
+            <!--攻击点访问日志追踪-->
             <div style="margin-top: 3.5%">
                 <div class="attackPointInfor">
                     攻击点访问日志追踪
@@ -196,147 +206,190 @@
                     </select>
                     <button class="search">筛选</button>
                 </div>
-                <table class="tableCom attackPointInforList">
-                    <tr class="tableTh">
-                        <th>访问时间</th>
-                        <th>被攻击IP</th>
-                        <th>利用协议</th>
-                        <th>请求流量</th>
-                        <th>响应流量</th>
-                        <th>是否攻击</th>
-                        <th>深度分析</th>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 13:11:50</td>
-                        <td>192.168.1.55</td>
-                        <td>HTTP</td>
-                        <td>500K</td>
-                        <td>500K</td>
-                        <td>是</td>
-                        <td>
-                            <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
-                        </td>
-                    </tr>
-                </table>
-                <div class="export left">
-                    <p></p>
-                    <span>导出事件列表</span>
-                </div>
-                <div class="page right">
-                    <ul class="left">
-                        <li><a href="javascript:"><img src="images/left.png" alt=""></a></li>
-                        <li><a href="javascript:">1</a></li>
-                        <li><a href="javascript:">2</a></li>
-                        <li><a href="javascript:">3</a></li>
-                        <li><a href="javascript:">4</a></li>
-                        <li><a href="javascript:">5</a></li>
-                        <li><a href="javascript:">...</a></li>
-                        <li><a href="javascript:" style="border-right: 1px solid #22c9fb"><img src="images/right.png" alt=""></a></li>
-                    </ul>
-                    <span style="margin-top: 2px">共 <span>20</span> 页</span>
-                    <span style="padding: 0 15px">到第 <input type="text" value="10" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
-                    <span style="height: 16px;line-height: 16px;padding: 3px 5px;background: #044392;color: #22c9fb;border: 1px solid #065f86;cursor: pointer">确定</span>
-                </div>
+               <div style="overflow: hidden;clear: both">
+                   <table class="tableCom attackPointInforList">
+                       <tr class="tableTh">
+                           <th>访问时间</th>
+                           <th>被攻击IP</th>
+                           <th>利用协议</th>
+                           <th>请求流量</th>
+                           <th>响应流量</th>
+                           <th>是否攻击</th>
+                           <th>深度分析</th>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>2017/07/07 13:11:50</td>
+                           <td>192.168.1.55</td>
+                           <td>HTTP</td>
+                           <td>500K</td>
+                           <td>500K</td>
+                           <td>是</td>
+                           <td>
+                               <button class="trace" onclick="window.open('webDetails.html','_self')">查看详情</button>
+                           </td>
+                       </tr>
+                   </table>
+                   <div class="export left">
+                       <p></p>
+                       <span>导出事件列表</span>
+                   </div>
+                   <div class="page right">
+                       <ul class="left">
+                           <li><a href="javascript:"><img src="images/left.png" alt=""></a></li>
+                           <li><a href="javascript:">1</a></li>
+                           <li><a href="javascript:">2</a></li>
+                           <li><a href="javascript:">3</a></li>
+                           <li><a href="javascript:">4</a></li>
+                           <li><a href="javascript:">5</a></li>
+                           <li><a href="javascript:">...</a></li>
+                           <li><a href="javascript:" style="border-right: 1px solid #22c9fb"><img src="images/right.png" alt=""></a></li>
+                       </ul>
+                       <span style="margin-top: 2px">共 <span>20</span> 页</span>
+                       <span style="padding: 0 15px">到第 <input type="text" value="10" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
+                       <span style="height: 16px;line-height: 16px;padding: 3px 5px;background: #044392;color: #22c9fb;border: 1px solid #065f86;cursor: pointer">确定</span>
+                   </div>
+               </div>
             </div>
+            <!--&lt;!&ndash;攻击过程&ndash;&gt;-->
+            <!--<div style="margin-top: 3.5%">-->
+                <!--<div class="attackPointInfor">-->
+                    <!--攻击过程-->
+                    <!--<div class="line"></div>-->
+                <!--</div>-->
+                <!--<div class="attackProcess">-->
+                    <!--<div class="attackProcessL left">-->
+                        <!--<ul>-->
+                            <!--<li style="margin-top: 20px">2017/06/13 13:30:23</li>-->
+                            <!--<li>2017/06/13 13:30:23</li>-->
+                            <!--<li>2017/06/13 13:30:23</li>-->
+                            <!--<li>2017/06/13 13:30:23</li>-->
+                            <!--<li>2017/06/13 13:30:23</li>-->
+                            <!--<li>2017/06/13 13:30:23</li>-->
+                            <!--<li>2017/06/13 13:30:23</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="attackProcessC left">-->
+
+                    <!--</div>-->
+                    <!--<div class="attackProcessR left">-->
+                        <!--<p><span>61.185.211.153</span>攻击事件报告</p>-->
+                        <!--<ul>-->
+                            <!--<li style="margin-top: 11px; background: url('images/attackProcess.png');background-size: 100%">-->
+                               <!--<div>事件概况</div>-->
+                                <!--<span></span>-->
+                            <!--</li>-->
+                            <!--<li></li>-->
+                            <!--<li style="background: url('images/attackProcess.png');background-size: 100%">-->
+                                <!--<div>攻击过程</div>-->
+
+                            <!--</li>-->
+                            <!--<li></li>-->
+                            <!--<li></li>-->
+                            <!--<li></li>-->
+                            <!--<li></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
         </div>
     </div>

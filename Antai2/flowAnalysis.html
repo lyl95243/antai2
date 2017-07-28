@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/flowAnalysis.js"></script>
     <!--[if lt IE 9]>
@@ -70,7 +71,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -157,13 +166,8 @@
                         <input type="text" placeholder="输入被攻击IP">
                     </li>
                     <li>
-                        <p>目的端口</p>
-                        <select name="">
-                            <option value="">所有</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                        </select>
+                        <span>目的端口</span>
+                        <input type="text" placeholder="输入目的端口">
                     </li>
                     <li>
                         <p>传输协议</p>
@@ -183,7 +187,7 @@
                             <!--<option value="">小时</option>-->
                         </select>
                     </li>
-                    <li style="width: 18%;margin-top: 20px">
+                    <li style="width: 14%">
                         <p class="left">会话流量范围</p>
                         <div class="fanwei left">
                             <input type="text" value="0">
@@ -197,7 +201,7 @@
                             <span class="caretx"></span>
                         </div>
                     </li>
-                    <li style="width: 18%;margin-top: 20px">
+                    <li style="width: 14%;">
                         <p class="left">请求流量范围</p>
                         <div class="fanwei left">
                             <input type="text" value="0">
@@ -211,7 +215,7 @@
                             <span class="caretx"></span>
                         </div>
                     </li>
-                    <li style="width: 18%;margin-top: 20px">
+                    <li style="width: 14%;">
                         <p class="left">响应流量范围</p>
                         <div class="fanwei left">
                             <input type="text" value="0">
@@ -225,7 +229,7 @@
                             <span class="caretx"></span>
                         </div>
                     </li>
-                    <li style="margin-top: 20px">
+                    <li>
                         <button class="search" onclick="window.open('','_self')">搜索</button>
                     </li>
                 </ul>
@@ -243,97 +247,136 @@
                         <div class="total">总流量</div>
                         <div class="flow">(流量)</div>
                     </div>
-                    <div id="flowChart" style="width: 107%;height: 100%;"></div>
+                    <div id="flowChart" style="width: 100%;height: 100%;"></div>
+                </div>
+            </div>
+            <!--协议流量趋势图-->
+            <div style="margin-top: 35px">
+                <div class="flowChartTitle">
+                    协议流量趋势图
+                    <div class="line"></div>
+                </div>
+                <div class="flowChart">
+                    <div>
+                        <div class="TDP">HTTP</div>
+                        <div class="UDP">MAIL</div>
+                        <div class="total">DNS</div>
+                        <div class="flow">(流量)</div>
+                    </div>
+                    <div id="xieyiflowChart" style="width: 100%;height: 100%;"></div>
                 </div>
             </div>
             <!--流量分布图-->
-            <div style="margin-top: 35px;height: 603px;">
+            <div style="margin-top: 35px;">
                 <div class="flowChartTitle">
                     流量分布图
                     <div class="line"></div>
                 </div>
                 <div class="flowChart">
-                    <div id="flowfenbuChart" style="width: 107%;height: 100%;"></div>
+                    <div class="flowChartTime">
+                        <p>会话流量</p>
+                        <select name="" id="">
+                            <option value="">会话流量</option>
+                            <!--<option value="">小时</option>-->
+                            <!--<option value="">小时</option>-->
+                            <!--<option value="">小时</option>-->
+                        </select>
+                    </div>
+                    <div id="flowfenbuChart" style="width: 100%;height: 100%;"></div>
                 </div>
-                <div class="accessLoTotal">
-                    <table class="tableCom sourceIP">
-                        <tr class="tableTr">
-                            <th>应用协议(按会话数)</th>
-                            <th>正序排列<span class="caret"></span></th>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                    </table>
+            </div>
+            <div style="margin-top: 35px">
+                <div class="flowChartTitle">
+                    分类流量统计
+                    <div class="line"></div>
                 </div>
-                <div class="accessLoTotal">
-                    <table class="tableCom sourceIP">
-                        <tr class="tableTr">
-                            <th>应用协议(按流量大小)</th>
-                            <th>正序排列<span class="caret"></span></th>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="accessLoTotal">
-                    <table class="tableCom sourceIP">
-                        <tr class="tableTr">
-                            <th>统计</th>
-                            <th>数量</th>
-                            <th>流量</th>
-                        </tr>
-                        <tr>
-                            <td>会话统计</td>
-                            <td>1000</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>TCP会话统计</td>
-                            <td>1000</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>UDP会话统计</td>
-                            <td>1000</td>
-                            <td>12G</td>
-                        </tr>
-                    </table>
+                <div style="overflow: hidden">
+                    <div class="accessLoTotal">
+                        <table class="tableCom sourceIP">
+                            <tr class="tableTr">
+                                <th>应用协议(按会话数)</th>
+                                <th>正序排列<span class="caret"></span></th>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="accessLoTotal">
+                        <table class="tableCom sourceIP">
+                            <tr class="tableTr">
+                                <th>应用协议(按流量大小)</th>
+                                <th>数量</th>
+                                <th>正序排列<span class="caret"></span></th>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                            <tr>
+                                <td>http</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="accessLoTotal">
+                        <table class="tableCom sourceIP">
+                            <tr class="tableTr">
+                                <th>统计</th>
+                                <th>数量</th>
+                                <th>流量</th>
+                            </tr>
+                            <tr>
+                                <td>会话统计</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                            <tr>
+                                <td>TCP会话统计</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                            <tr>
+                                <td>UDP会话统计</td>
+                                <td>1000</td>
+                                <td>12G</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!--流量分析追踪-->

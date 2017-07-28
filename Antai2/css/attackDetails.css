@@ -1,6 +1,15 @@
+.container{
+    height: 1181px;
+}
+.leftNavCon{
+    height: 1007px;
+}
+.leftNav{
+    height: 1101px;
+}
 .rightCon{
     width: 96%;
-    height: 1044px;
+    height: 1006px;
     margin: 2%;
     border:1px solid #047afe;
     position: relative;
@@ -117,10 +126,18 @@
     background: #06244b;
     color: #22c9fb;
     margin-right: 2%;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../images/selectSanjiao.png") no-repeat 94% center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
 
 }
 .pianyiWrap>select>option {
     color: #22c9fb;
+    background: #06244b;
 }
 .search{
     width: 50px;
@@ -155,14 +172,10 @@
     height: 43px;
     background: url("../images/bg_attackBack.png");
 }
-.attackPointInforList>tbody>tr>td:nth-child(1),.attackPointInforList>tbody>tr>td:nth-child(3)
-,.attackPointInforList>tbody>tr>td:nth-child(5),.attackPointInforList>tbody>tr>td:nth-child(7)
-,.attackPointInforList>tbody>tr>td:nth-child(9){
+.attackPointInforList>tbody>tr>td:nth-child(odd){
     background: #012859;
 }
-.attackPointInforList>tbody>tr>td:nth-child(2),.attackPointInforList>tbody>tr>td:nth-child(4)
-,.attackPointInforList>tbody>tr>td:nth-child(6),.attackPointInforList>tbody>tr>td:nth-child(8)
-{
+.attackPointInforList>tbody>tr>td:nth-child(even){
     background: #014293;
     color: #ff8463;
 }
@@ -218,8 +231,61 @@
     margin-top: 5px;
     border: none;
 }
+.attackProcess{
+    overflow: hidden;
+    margin-top: 3.5%;
+}
+.attackProcessL{
+    width: 12%;
+}
+.attackProcessL>ul li{
+    height: 112px;
+    line-height: 112px;
+    color: #22c9fb;
+    padding: 0 0 0 21%;
+}
 
-
+.attackProcessC{
+    width: 14px;
+    height: 797px;
+    background: url("../images/attackProcess3.png");
+    background-size: 100%;
+}
+.attackProcessR{
+    width: 80.8%;
+}
+.attackProcessR>p{
+    color: #22c9fb;
+    margin-left: 18px;
+}
+.attackProcessR>ul li{
+    width: 100%;
+    height: 92px;
+    background: url("../images/attackProcess2.png");
+    background-size: 100%;
+    margin: 21px 0 0 25px;
+}
+@media (max-width: 1400px) {
+    .attackProcessL>ul li{
+        padding: 0 0 0 11% !important;
+    }
+    .attackProcessR>ul li{
+        height: 64px !important;
+        margin: 49px 0 0 25px !important;
+    }
+    .attackProcessR>ul li:first-child{
+        margin-top: 28px !important;
+    }
+    .attackProcessR>ul li>div{
+        line-height:64px !important;
+    }
+}
+.attackProcessR>ul li>div{
+    color: white;
+    width: 14%;
+    text-align: center;
+    line-height: 92px;
+}
 
 
 

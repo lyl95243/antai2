@@ -233,8 +233,7 @@
 .assetsTab>tbody>tr{
     border-top: 1px solid #1f6ba7;
 }
-.assetsTab>tbody>tr td:nth-child(2),.assetsTab>tbody>tr td:nth-child(4),
-.assetsTab>tbody>tr td:nth-child(6),.assetsTab>tbody>tr td:nth-child(8){
+.assetsTab>tbody>tr td:nth-child(even){
     color:#ff8463 ;
     background: rgba(54, 143, 240, 0.25);
     /*filter:alpha(opacity=25);*/

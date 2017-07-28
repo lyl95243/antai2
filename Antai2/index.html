@@ -9,6 +9,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <!--[if lt IE 9]>
@@ -24,7 +25,7 @@
             <p></p>
         </div>
         <div class="calendar">
-            <p>今日</p>
+            <p>至今</p>
             <span class="caret carett"></span>
         </div>
         <div class="calendarXl">
@@ -69,7 +70,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -197,64 +206,8 @@
             <div class="rightConSec">
                 <!--域名排名-->
                 <div class="domainCon left" style="padding-left: 0.5%; ">
-                   <div class="domainT">
-                       域名排名
-                   </div>
-                    <table class="tableCom table">
-                       <tr>
-                           <th>名次</th>
-                           <th>域名</th>
-                           <th>访问次数</th>
-                           <th>访问百分比</th>
-                       </tr>
-                        <tr>
-                            <td>NO.1</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.2</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.3</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.4</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.5</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.6</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.7</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
-                        <tr>
-                            <td>NO.8</td>
-                            <td>www.baidu.com</td>
-                            <td>1000</td>
-                            <td>80%</td>
-                        </tr>
+                    <table class="tableCom table" id="domain" style="table-layout:fixed">
+
                     </table>
                 </div>
                 <!--出入口流量统计-->
@@ -272,60 +225,58 @@
                 </div>
                 <!--服务流量排名-->
                 <div class="domainCon left">
-                    <div class="domainT">
-                        服务流量排名
-                    </div>
                     <table class="tableCom table">
-                        <tr>
-                            <th>名次</th>
+                        <tr class="domainT">
                             <th>服务名称</th>
                             <th>入口总流量</th>
                             <th>出口总流量</th>
                         </tr>
                         <tr>
-                            <td>NO.1</td>
                             <td>http</td>
                             <td>12G</td>
                             <td>12G</td>
                         </tr>
                         <tr>
-                            <td>NO.2</td>
-                            <td>smtp</td>
-                            <td>10G</td>
-                            <td>10G</td>
-                        </tr>
-                        <tr>
-                            <td>NO.3</td>
-                            <td>pop3</td>
-                            <td>8G</td>
-                            <td>8G</td>
-                        </tr>
-                        <tr>
-                            <td>NO.4</td>
                             <td>http</td>
                             <td>12G</td>
                             <td>12G</td>
                         </tr>
                         <tr>
-                            <td>NO.5</td>
                             <td>http</td>
                             <td>12G</td>
                             <td>12G</td>
                         </tr>
                         <tr>
-                            <td>NO.6</td>
                             <td>http</td>
                             <td>12G</td>
                             <td>12G</td>
                         </tr>
                         <tr>
-                            <td>NO.7</td>
                             <td>http</td>
                             <td>12G</td>
                             <td>12G</td>
                         </tr>
                         <tr>
-                            <td>NO.8</td>
+                            <td>http</td>
+                            <td>12G</td>
+                            <td>12G</td>
+                        </tr>
+                        <tr>
+                            <td>http</td>
+                            <td>12G</td>
+                            <td>12G</td>
+                        </tr>
+                        <tr>
+                            <td>http</td>
+                            <td>12G</td>
+                            <td>12G</td>
+                        </tr>
+                        <tr>
+                            <td>http</td>
+                            <td>12G</td>
+                            <td>12G</td>
+                        </tr>
+                        <tr>
                             <td>http</td>
                             <td>12G</td>
                             <td>12G</td>
@@ -334,51 +285,17 @@
                 </div>
             </div>
             <div class="rightConThi">
-               <!--攻击源-->
-                <div class="attkSource left">
-                    <div class="attkSourceTitle">
-                        攻击源
+                <!--攻击类型-->
+                <div class="attkTypeTab left">
+                    <div class="attkTypeTabTitle">
+                        攻击类型
                     </div>
                     <div class="zuos"></div>
                     <div class="yous"></div>
                     <div class="zuox"></div>
                     <div class="youx"></div>
-                    <table class="tableCom attkTable">
-                       <tr>
-                           <th>IP</th>
-                           <th>国家</th>
-                           <th>攻击总数</th>
-                       </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg"><img src="images/flags/RU.png" alt="">俄罗斯</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg"><img src="images/flags/RU.png" alt="">俄罗斯</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg"><img src="images/flags/RU.png" alt="">俄罗斯</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg"><img src="images/flags/RU.png" alt="">俄罗斯</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg"><img src="images/flags/RU.png" alt="">俄罗斯</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg"><img src="images/flags/RU.png" alt="">俄罗斯</td>
-                            <td>1000</td>
-                        </tr>
+                    <table class="tableCom attkTypeTabTable" id="attkTypeTable" style="table-layout:fixed;">
+
                     </table>
                 </div>
                 <!--攻击类型排名-->
@@ -416,95 +333,6 @@
                     </div>
                     <div id="attkTypeChart" style="width: 100%;height: 280px;"></div>
                 </div>
-            </div>
-            <div class="rightConFour">
-                <!--攻击目标-->
-                <div class="attkTarget left">
-                    <div class="attkTargetTitle">
-                        攻击目标
-                    </div>
-                    <div class="zuos"></div>
-                    <div class="yous"></div>
-                    <div class="zuox"></div>
-                    <div class="youx"></div>
-                    <table class="tableCom attkTargetTable">
-                        <tr>
-                            <th>IP</th>
-                            <th>国家</th>
-                            <th>攻击总数</th>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg">俄罗斯 / 罗马</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg">俄罗斯 / 罗马</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg">俄罗斯 / 罗马</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg">俄罗斯 / 罗马</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg">俄罗斯 / 罗马</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>192.168.1.55</td>
-                            <td class="tdImg">俄罗斯 / 罗马</td>
-                            <td>1000</td>
-                        </tr>
-                    </table>
-                </div>
-                <!--攻击类型-->
-                <div class="attkTypeTab left">
-                    <div class="attkTypeTabTitle">
-                        攻击类型
-                    </div>
-                    <div class="zuos"></div>
-                    <div class="yous"></div>
-                    <div class="zuox"></div>
-                    <div class="youx"></div>
-                    <table class="tableCom attkTypeTabTable">
-                        <tr>
-                            <th>攻击类型</th>
-                            <th>攻击总数</th>
-                        </tr>
-                        <tr>
-                            <td>webshell</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>webshell</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>webshell</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>webshell</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>webshell</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>webshell</td>
-                            <td>1000</td>
-                        </tr>
-                    </table>
-                </div>
                 <!--利用协议类型-->
                 <div class="attkTypeTab left">
                     <div class="attkTypeTabTitle attkSerTabTitle">
@@ -514,35 +342,36 @@
                     <div class="yous"></div>
                     <div class="zuox"></div>
                     <div class="youx"></div>
-                    <table class="tableCom attkTypeTabTable attkSerTabTable">
-                        <tr>
-                            <th>服务名称</th>
-                            <th>攻击总数</th>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>smtp</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>POP3</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>IMAP</td>
-                            <td>1000</td>
-                        </tr>
-                        <tr>
-                            <td>DNS</td>
-                            <td>1000</td>
-                        </tr>
+                    <table class="tableCom attkProtoTable" id="attkProtoTable">
+
+                    </table>
+                </div>
+            </div>
+            <div class="rightConFour">
+                <!--攻击源-->
+                <div class="attkSource left">
+                    <div class="attkSourceTitle">
+                        攻击源
+                    </div>
+                    <div class="zuos"></div>
+                    <div class="yous"></div>
+                    <div class="zuox"></div>
+                    <div class="youx"></div>
+                    <table class="tableCom attkSrcTable" id="attkSrc">
+
+                    </table>
+                </div>
+                <!--攻击目标-->
+                <div class="attkTarget left">
+                    <div class="attkTargetTitle">
+                        攻击目标
+                    </div>
+                    <div class="zuos"></div>
+                    <div class="yous"></div>
+                    <div class="zuox"></div>
+                    <div class="youx"></div>
+                    <table class="tableCom attkTargetTable" id="attkDstTable">
+
                     </table>
                 </div>
                 <!--实时攻击信息-->
@@ -554,71 +383,11 @@
                     <div class="yous"></div>
                     <div class="zuox"></div>
                     <div class="youx"></div>
-                    <table class="tableCom attkTypeTabTable realTimeAttkTable">
-                        <tr>
-                            <th>攻击时间</th>
-                            <th>攻击者IP</th>
-                            <th>攻击者地址</th>
-                            <th>攻击目标IP</th>
-                            <th>攻击目标地址</th>
-                            <th>攻击协议</th>
-                            <th>攻击类型</th>
-                        </tr>
-                        <tr>
-                            <td>18:46:30</td>
-                            <td>192.168.1.55</td>
-                            <td>中国杭州</td>
-                            <td>192.168.1.22</td>
-                            <td>中国北京</td>
-                            <td>HTTP</td>
-                            <td>webshell</td>
-                        </tr>
-                        <tr>
-                            <td>18:46:30</td>
-                            <td>192.168.1.55</td>
-                            <td>中国杭州</td>
-                            <td>192.168.1.22</td>
-                            <td>中国北京</td>
-                            <td>HTTP</td>
-                            <td>webshell</td>
-                        </tr>
-                        <tr>
-                            <td>18:46:30</td>
-                            <td>192.168.1.55</td>
-                            <td>中国杭州</td>
-                            <td>192.168.1.22</td>
-                            <td>中国北京</td>
-                            <td>HTTP</td>
-                            <td>webshell</td>
-                        </tr>
-                        <tr>
-                            <td>18:46:30</td>
-                            <td>192.168.1.55</td>
-                            <td>中国杭州</td>
-                            <td>192.168.1.22</td>
-                            <td>中国北京</td>
-                            <td>HTTP</td>
-                            <td>webshell</td>
-                        </tr>
-                        <tr>
-                            <td>18:46:30</td>
-                            <td>192.168.1.55</td>
-                            <td>中国杭州</td>
-                            <td>192.168.1.22</td>
-                            <td>中国北京</td>
-                            <td>HTTP</td>
-                            <td>webshell</td>
-                        </tr>
-                        <tr>
-                            <td>18:46:30</td>
-                            <td>192.168.1.55</td>
-                            <td>中国杭州</td>
-                            <td>192.168.1.22</td>
-                            <td>中国北京</td>
-                            <td>HTTP</td>
-                            <td>webshell</td>
-                        </tr>
-                    </table>
+                    <div>
+                        <table class="tableCom realTimeAttkTable" id="realTimeAttkTable">
+
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

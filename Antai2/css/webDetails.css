@@ -1,6 +1,6 @@
 .rightCon{
     width: 96%;
-    height: 1094px;
+    /*height: 1094px;*/
     margin: 2%;
     border:1px solid #047afe;
     position: relative;
@@ -61,17 +61,20 @@
     margin: 2% 2.5%;
     border: 1px solid #2f94e0;
 }
-.webTable>tbody>tr td:nth-child(1){
+.webTable>tbody>tr td:first-child{
     color: #22c9fb;
     width: 20%;
     font-size: 17px;
 }
 .webTable>tbody>tr td{padding: 7px}
-.webTable>tbody>tr td:nth-child(2){
+.webTable>tbody>tr td:last-child{
     color: #fff;
     border-left: 1px solid #2f94e0;
     text-align: left;
     padding-left: 35px;
+    width: 98%;
+    word-wrap:break-word;
+    word-break:break-all;
 }
 .webTable>tbody>tr:nth-child(odd){
     background: #022b5d;
@@ -108,6 +111,7 @@
 .tab-pane{
     border: 1px solid #2f94e0;
     min-height: 250px;
+    margin-bottom: 30px;
 }
 .tab-pane>ul li{
     color: white;
@@ -124,14 +128,31 @@
     max-width: 100%;
     margin: 0.8% 1.5% 1.5% 0;
 }
-.reqHeadTable>tbody>tr td:nth-child(1){
+.reqHeadTable>tbody>tr td:first-child{
     width: 16%;
     color: #afd311;
     padding: 6px 0 6px 1%;
 }
-.reqHeadTable>tbody>tr td:nth-child(2){
+.reqHeadTable>tbody>tr td:last-child{
     color: #afd311;
     padding: 6px 0 6px 1%;
+    width: 84%;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.text{
+    min-height: 250px;
+    max-height: 650px;
+    margin: 0 20px 40px 20px;
+    padding:20px 20px 28px 20px;
+    overflow: auto;
+    clear: both;
+}
+.textWrap{
+    min-height: 700px;
+    overflow: auto;
+    word-wrap:break-word;
+    word-break:break-all;
 }
 
 

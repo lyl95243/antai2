@@ -10,8 +10,9 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/emaiDetails.js"></script>
+    <script type="text/javascript" src="js/emailDetails.js"></script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
@@ -70,7 +71,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -92,8 +101,8 @@
                         </div>
                         <div class="dianji liClick"></div>
                         <div class="navxl" style="display: block">
-                            <a href="threatAnalysis.html" target="_self" style="background:#072559;color: #07b4f0;">威胁事件分析</a>
-                            <a href="alertLog.html" target="_self">告警日志</a>
+                            <a href="threatAnalysis.html" target="_self">威胁事件分析</a>
+                            <a href="alertLog.html" target="_self" style="background:#072559;color: #07b4f0;">告警日志</a>
                         </div>
                     </li>
                     <li>
@@ -148,95 +157,49 @@
             <table class="tableCom emailTable">
                 <tr>
                     <td>标题</td>
-                    <td>test</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>时间</td>
-                    <td>2017/07/07 11:23:50</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>发件人</td>
                     <td>
-                        <span>antell@163.com</span>
-                        <span class="traceNew">跟踪通讯信息</span>
+                        <span></span>
                     </td>
 
                 </tr>
                 <tr>
                     <td>收件人</td>
                     <td>
-                        <span>dream@163.com</span>
-                        <span class="traceNew">跟踪通讯信息</span>
+
                     </td>
 
                 </tr>
                 <tr>
                     <td>抄送</td>
-                    <td>home@163.com</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>附件</td>
-                    <td>5个（01、02、03、04、05）</td>
+                    <td><span></span>个 <a href="#attchments" style="color: #22c9fb"></a></td>
                 </tr>
             </table>
-            <div class="content" style="min-height: 300px">
+            <div class="content" style="min-height: 300px;">
                 <div>
                     <p>内容</p>
-                    <div>
-                        <table class="contentTable">
-                            <tr>
-                                <td>Cookie</td>
-                                <td>adfasdfdf</td>
-                            </tr>
-                            <tr>
-                                <td>Accept</td>
-                                <td>Acsdfsdfcvx</td>
-                            </tr>
-                            <tr>
-                                <td>User-Agent</td>
-                                <td>Uasdfwefdfgfg</td>
-                            </tr>
-                            <tr>
-                                <td>Connection</td>
-                                <td>Conasdfasdfsfxcbc</td>
-                            </tr>
-                            <tr>
-                                <td>Referer</td>
-                                <td>Rsdfcxrgwert</td>
-                            </tr>
-                            <tr>
-                                <td>Host</td>
-                                <td>Hregxxcvb</td>
-                            </tr>
-                        </table>
+                    <div class="rightConM">
+
                     </div>
                 </div>
             </div>
             <div class="content" style="min-height: 300px">
                 <div>
                     <p>附件</p>
-                    <div class="attachment">
+                    <div id="attchments">
                         <ul>
-                            <li>
-                                <span>01.vir</span>
-                                <span><a href="">下载</a></span>
-                            </li>
-                            <li>
-                                <span>02.vir</span>
-                                <span><a href="">下载</a></span>
-                            </li>
-                            <li>
-                                <span>03.vir</span>
-                                <span><a href="">下载</a></span>
-                            </li>
-                            <li>
-                                <span>04.vir</span>
-                                <span><a href="">下载</a></span>
-                            </li>
-                            <li>
-                                <span>05.vir</span>
-                                <span><a href="">下载</a></span>
-                            </li>
+
                         </ul>
                     </div>
                 </div>

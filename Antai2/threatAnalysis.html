@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/threatAnalysis.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/bootstrapPaginator.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/threatAnalysis.js"></script>
@@ -25,7 +27,7 @@
             <p></p>
         </div>
         <div class="calendar">
-            <p>今日</p>
+            <p>至今</p>
             <span class="caret carett"></span>
         </div>
         <div class="calendarXl">
@@ -70,7 +72,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon startTime" id="hello1" placeholder="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon endTime" id="hello2" placeholder="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -135,7 +145,45 @@
     </div>
     <!--右部内容-->
     <div class="left rightWrap">
-        <div class="rightCon">
+        <!--筛选项-->
+        <div class="right" style="overflow: hidden;margin: 27px 9% 0 0">
+            <div class="left threatEventChoice">
+                <p>攻击类型</p>
+                <select name="" id="attakType">
+                    <option value="">所有</option>
+                </select>
+            </div>
+            <div class="left threatEventChoice">
+                <p>利用协议</p>
+                <select name="" id="protocol">
+                    <option value="">所有</option>
+                    <option value="HTTP">HTTP</option>
+                    <option value="SMTP">SMTP</option>
+                    <option value="IMAP">IMAP</option>
+                    <option value="POP3">POP3</option>
+                    <option value="TELNET">TELNET</option>
+                    <option value="FTP">FTP</option>
+                    <option value="DNS">DNS</option>
+                </select>
+            </div>
+            <div class="left threatEventChoice">
+                <p>攻击IP</p>
+                <input type="text" placeholder="攻击IP" id="attkIP">
+            </div>
+            <div class="left threatEventChoice">
+                <p>威胁级别</p>
+                <select name="" id="alertLevel">
+                    <option value="-1">全部</option>
+                    <option value="1">初级</option>
+                    <option value="2">中级</option>
+                    <option value="3">高级</option>
+                </select>
+            </div>
+            <div class="left">
+                <button class="search" id="search">搜索</button>
+            </div>
+        </div>
+        <div class="rightCon" style="margin-top: 100px">
             <div class="rightConTop">
                 <ul>
                     <li class="rightConTLi left" style="margin-left: 6%">
@@ -143,7 +191,7 @@
                             <img src="images/icon_shijianzongshu.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="total"></p>
                             <p class="hacker">事件总数</p>
                         </span>
                     </li>
@@ -152,7 +200,7 @@
                             <img src="images/icon_gaoweishijian.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="highAttkNum"></p>
                             <p class="hacker">高危事件总数</p>
                         </span>
                     </li>
@@ -161,7 +209,7 @@
                             <img src="images/icon_gongjiIP.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="attkIPNum"></p>
                             <p class="hacker">攻击IP总数</p>
                         </span>
                     </li>
@@ -170,7 +218,7 @@
                             <img src="images/icon_beigongji.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="attackedIPNum"></p>
                             <p class="hacker">被攻击IP总数</p>
                         </span>
                     </li>
@@ -179,7 +227,7 @@
                             <img src="images/icon_gongjileixing.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="attkTypeNum"></p>
                             <p class="hacker">攻击类型总数</p>
                         </span>
                     </li>
@@ -188,7 +236,7 @@
                             <img src="images/icon_gongjixieyi.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="protoNum"></p>
                             <p class="hacker">利用协议总数</p>
                         </span>
                     </li>
@@ -197,7 +245,7 @@
                             <img src="images/icon_gongjidiqu.png" alt="">
                         </div>
                         <span class="left">
-                            <p class="hackNum">1000</p>
+                            <p class="hackNum" id="attkCountryNum"></p>
                             <p class="hacker">攻击地区总数</p>
                         </span>
                     </li>
@@ -211,15 +259,20 @@
                     </div>
                     <div class="threatTrendTime">
                       <p>时间间隔</p>
-                        <select name="" id="">
-                            <option value="">小时</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
+                        <select name="" id="threatTrendTime">
+                            <option value="0">秒</option>
+                            <option value="1">分钟</option>
+                            <option value="2" selected="selected">小时</option>
+                            <option value="3">天</option>
+                            <option value="4">星期</option>
+                            <option value="5">月</option>
+                            <option value="6">年</option>
                         </select>
                     </div>
                     <div id="threatTrendEchart" style="width: 112%;height:80%;"></div>
                 </div>
+            </div>
+            <div class="rightConThi">
                 <!--利用协议排名-->
                 <div class="ProName left" style="margin-left: 1.3%">
                     <div class="ProNameTitle">
@@ -231,8 +284,6 @@
                     <div class="youx"></div>
                     <div id="ProNameEchart" style="width: 100%;height: 100%;"></div>
                 </div>
-            </div>
-            <div class="rightConThi">
                 <!--攻击IP排名-->
                 <div class="ProName left">
                     <div class="ProNameTitle">
@@ -282,205 +333,22 @@
                 <div class="threatEventTitle">
                     威胁事件列表
                 </div>
-                <div class="right" style="overflow: hidden;margin-top: 27px">
-                    <div class="left threatEventChoice">
-                        <p>攻击类型</p>
-                        <select name="">
-                            <option value="">所有</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                        </select>
-                    </div>
-                    <div class="left threatEventChoice">
-                        <p>利用协议</p>
-                        <select name="">
-                            <option value="">所有</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                        </select>
-                    </div>
-                    <div class="left threatEventChoice">
-                        <p>攻击IP</p>
-                        <select name="">
-                            <option value="">所有</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                        </select>
-                    </div>
-                    <div class="left threatEventChoice">
-                        <p>威胁级别</p>
-                        <select name="">
-                            <option value="">所有</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                        </select>
-                    </div>
+                <div style="min-height: 421px;">
+                    <table class="tableCom threatEventList" id="threatEventList">
+
+                    </table>
                 </div>
-                <table class="tableCom threatEventList">
-                    <tr class="tableTh">
-                        <th>最早攻击时间</th>
-                        <th>最近攻击时间</th>
-                        <th>攻击IP</th>
-                        <th>攻击地区</th>
-                        <th>利用协议</th>
-                        <th>攻击类型</th>
-                        <th>威胁级别</th>
-                        <th>攻击次数</th>
-                        <th>深度分析</th>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>2017/06/03 12:35:03</td>
-                        <td>192.168.1.55</td>
-                        <td>中国</td>
-                        <td>HTTP</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>123</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackBack.html','_self')">攻击溯源</button>
-                        </td>
-                    </tr>
-                </table>
                 <div class="export left">
                     <p></p>
                     <span>导出事件列表</span>
                 </div>
-                <div class="page right">
-                    <ul class="left">
-                        <li><a href="javascript:"><img src="images/left.png" alt=""></a></li>
-                        <li><a href="javascript:">1</a></li>
-                        <li><a href="javascript:">2</a></li>
-                        <li><a href="javascript:">3</a></li>
-                        <li><a href="javascript:">4</a></li>
-                        <li><a href="javascript:">5</a></li>
-                        <li><a href="javascript:">...</a></li>
-                        <li><a href="javascript:" style="border-right: 1px solid #22c9fb"><img src="images/right.png" alt=""></a></li>
-                    </ul>
-                    <span style="margin-top: 2px">共 <span>20</span> 页</span>
-                    <span style="padding: 0 15px">到第 <input type="text" value="10" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
-                    <span style="height: 16px;line-height: 16px;padding: 3px 5px;background: #044392;color: #22c9fb;border: 1px solid #065f86;cursor: pointer">确定</span>
+                <div style="margin: 30px 2% 0 0" class="page">
+                    <div class="right">
+                        <span style="margin-top: 2px">共 <span class="pagetotal"></span> 页</span>
+                        <span style="padding: 0 15px">到第 <input type="text" value="1" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
+                        <span class="toPage" id="assetsTopage">确定</span>
+                    </div>
+                    <div class="pagination" id="yema"></div>
                 </div>
             </div>
         </div>

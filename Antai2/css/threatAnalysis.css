@@ -8,8 +8,22 @@
     height: 1829px;
  }
 .rightConTop{
-    margin: 52px 0 0 0;
+    /*margin: 52px 0 0 0;*/
     height: 140px;
+}
+.search{
+    width: 50px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 5px;
+    background: #b0d311;
+    color: #012859;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 100;
+    font-weight: 600;
 }
 .rightConTLi{
     padding: 0 0 0 2%;
@@ -54,11 +68,11 @@
     }
 }
 .threatTrend{
-    width: 72.5%;
+    width: 97%;
     height: 435px;
     margin:0 0 0 1.5%;
     position: relative;
-    background: url("../images/bg_threatTrend.png") no-repeat center;
+    background: url("../images/bg_threatTrend2.png") no-repeat center;
     background-size: 100%;
 }
 .threatTrendTitle{
@@ -89,19 +103,36 @@
     border:1px solid #075c83;
     background: #06244b;
     color: #22c9fb;
+    padding-left: 3px;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../images/selectSanjiao.png") no-repeat 59px center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    /*padding-right: 14px;*/
 }
+.threatTrendTime>select::-ms-expand,.threatEventChoice>select::-ms-expand { display: none; }
+
 .threatTrendTime>select>option,.threatEventChoice>select>option{
     color: #22c9fb;
+    background: #06244b;
 }
 
 #threatTrendEchart{
     position: absolute;
     top: 9%;
-    left: -52px;
+    left: -81px;
 }
-
+#attkIPEchart,#ProNameEchart,#attkedIPEchart,#attkTypeEchart
+,#attkAreaEchart{
+    position: absolute;
+    top: -12px;
+    left: 0;
+}
 .ProName{
-    width: 23%;
+    width: 18%;
     height: 419px;
     border: 1px solid #047afe;
     position: relative;
@@ -154,7 +185,13 @@
 }
 .threatEventList{
     border-right: 1px solid #3188cf;
-    margin-top: 75px;
+    margin-top: 94px;
+}
+#threatEventList tr td span{
+    padding: 3px 5px;
+    margin: 0 3px 0 0;
+    color: white;
+    border-radius: 3px;
 }
 .threatEventList>tbody>tr>td:first-child{
     border-left: 1px solid #3188cf;
@@ -184,20 +221,26 @@
     z-index: 100;
     font-weight: 600;
 }
-.threatEventList>tbody>tr>td:nth-child(1),.threatEventList>tbody>tr>td:nth-child(3)
-,.threatEventList>tbody>tr>td:nth-child(5),.threatEventList>tbody>tr>td:nth-child(7)
-,.threatEventList>tbody>tr>td:nth-child(9){
+.threatEventList>tbody>tr>td:nth-child(odd) {
     background: #012859;
 }
-.threatEventList>tbody>tr>td:nth-child(2),.threatEventList>tbody>tr>td:nth-child(4)
-,.threatEventList>tbody>tr>td:nth-child(6),.threatEventList>tbody>tr>td:nth-child(8)
-{
+.threatEventList>tbody>tr>td:nth-child(6){
+    text-align: left;
+    width: 26%;
+    padding-left: 3%;
+}
+.threatEventList>tbody>tr>td:nth-child(5){
+    text-align: left;
+    width: 13%;
+    padding-left: 2%;
+}
+.threatEventList>tbody>tr>td:nth-child(even) {
     background: #014293;
     color: #ff8463;
 }
 .tdImg img{
-    width: 51%;
-    cursor: pointer;
+    width: 29px;
+    height: 22px;
     vertical-align: middle;
 }
 .threatEventTitle{
@@ -214,7 +257,30 @@
     left: 1.5%;
 }
 .threatEventChoice{
-    margin-left: 40px;
+    margin-right: 40px;
+}
+.threatEventChoice>input{
+    outline: none;
+    width: 108px;
+    background: transparent;
+    border:1px solid #075c83;
+    padding: 5px 9px;
+    color: #07a0da;
+    background: #06244b;
+}
+.threatEventChoice>input::-webkit-input-placeholder{
+    color:    #07a0da;
+}
+.threatEventChoice>input:-moz-placeholder{
+    color:    #07a0da;
+    opacity:  1;
+}
+.threatEventChoice>input::-moz-placeholder{
+    color:    #07a0da;
+    opacity:  1;
+}
+.threatEventChoice>input:-ms-input-placeholder{
+    color:    #07a0da;
 }
 .export{
     margin: 31px 0 0 58px;
@@ -253,6 +319,18 @@
 .page>ul li a>img{
     margin-top: 5px;
     border: none;
+}
+.active>a{
+    background:#013d85
+}
+.toPage{
+    height: 16px;
+    line-height: 16px;
+    padding: 3px 5px;
+    background: #044392;
+    color: #22c9fb;
+    border: 1px solid #065f86;
+    cursor: pointer;
 }
 
 

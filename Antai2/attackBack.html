@@ -10,6 +10,8 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
+    <script type="text/javascript" src="js/laydate-v1.1/laydate/laydate.js"></script>
+    <script type="text/javascript" src="js/bootstrapPaginator.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/attackBack.js"></script>
     <!--[if lt IE 9]>
@@ -25,7 +27,7 @@
             <p></p>
         </div>
         <div class="calendar">
-            <p>今日</p>
+            <p>至今</p>
             <span class="caret carett"></span>
         </div>
         <div class="calendarXl">
@@ -70,7 +72,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -151,7 +161,7 @@
                     攻击IP基本信息
                     <div class="line"></div>
                 </div>
-                <table class="tableCom IPInforList">
+                <table class="tableCom IPInforList" id="IPInfor">
                     <tr class="tableTh">
                         <th>IP</th>
                         <th>攻击地区</th>
@@ -162,42 +172,42 @@
                         <th>攻击总流量</th>
                     </tr>
                     <tr>
-                        <td>211.222.1.10</td>
-                        <td>中国 北京</td>
-                        <td>2017/07/07 12:43</td>
-                        <td>2017/07/09 13:12</td>
-                        <td>50</td>
-                        <td>123G</td>
-                        <td>12G</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
             <!--攻击IP相关统计-->
             <div>
                 <div class="IPStatis">
-                   攻击IP相关统计
+                    攻击IP相关统计
                     <div class="line"></div>
                 </div>
                 <div style="overflow: hidden">
                     <div class="IPStaticPie left">
                         <div id="attackedIPchart" style="width:100%;height: 300px;"></div>
-                        <p>100</p>
+                        <p id="attkIP"></p>
                         <p>被攻击IP总数</p>
                     </div>
                     <div class="IPStaticPie left">
                         <div id="attackTypechart" style="width:100%;height: 300px;"></div>
-                        <p>100</p>
+                        <p id="attkType"></p>
                         <p>攻击类型总数</p>
                     </div>
                     <div class="IPStaticPie left">
                         <div id="proNamechart" style="width:100%;height: 300px;"></div>
-                        <p>100</p>
+                        <p id="attkProto"></p>
                         <p>攻击协议总数</p>
                     </div>
                     <div class="IPStaticPie left">
                         <div id="attackedchart" style="width:100%;height: 300px;"></div>
-                        <p>100</p>
-                        <p>被攻击IP总数</p>
+                        <p id="attkLevel"></p>
+                        <p>威胁级别总数</p>
                     </div>
                 </div>
             </div>
@@ -208,21 +218,30 @@
                     <div class="line"></div>
                 </div>
                 <div class="tendencyChart">
+                    <div class="tendencyjibieTime">
+                        <p>威胁级别</p>
+                        <select name="">
+                            <option value="-1">所有</option>
+                            <option value="1">初级</option>
+                            <option value="2">中级</option>
+                            <option value="3">高级</option>
+                        </select>
+                    </div>
                     <div class="tendencyChartTime">
                         <p>时间间隔</p>
-                        <select name="" id="">
-                            <option value="">小时</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
+                        <select name="">
+                            <option value="0">秒</option>
+                            <option value="1">分钟</option>
+                            <option value="2" selected="selected">小时</option>
+                            <option value="3">天</option>
+                            <option value="4">星期</option>
+                            <option value="5">月</option>
+                            <option value="6">年</option>
                         </select>
                     </div>
                     <div class="attackTendency">
                         <select name="">
                             <option value="">攻击趋势图</option>
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
-                            <!--<option value="">小时</option>-->
                         </select>
                     </div>
                     <div id="tendencyChart" style="width: 109%;height: 100%;"></div>
@@ -243,32 +262,33 @@
                         </li>
                         <li>
                             <p>攻击类型</p>
-                            <select name="">
+                            <select name="" id="attakType">
                                 <option value="">所有</option>
-                                <!--<option value="">小时</option>-->
-                                <!--<option value="">小时</option>-->
-                                <!--<option value="">小时</option>-->
                             </select>
                         </li>
                         <li>
                             <p>利用协议</p>
                             <select name="">
                                 <option value="">所有</option>
-                                <!--<option value="">小时</option>-->
-                                <!--<option value="">小时</option>-->
-                                <!--<option value="">小时</option>-->
+                                <option value="HTTP">HTTP</option>
+                                <option value="SMTP">SMTP</option>
+                                <option value="IMAP">IMAP</option>
+                                <option value="POP3">POP3</option>
+                                <option value="TELNET">TELNET</option>
+                                <option value="FTP">FTP</option>
+                                <option value="DNS">DNS</option>
                             </select>
                         </li>
                         <li>
                             <p>威胁级别</p>
                             <select name="">
-                                <option value="">所有</option>
-                                <!--<option value="">小时</option>-->
-                                <!--<option value="">小时</option>-->
-                                <!--<option value="">小时</option>-->
+                                <option value="-1">所有</option>
+                                <option value="1">初级</option>
+                                <option value="2">中级</option>
+                                <option value="3">高级</option>
                             </select>
                         </li>
-                        <li style="width: 18%;">
+                        <li style="width: 20%;">
                             <p class="left">请求流量范围</p>
                             <div class="fanwei left">
                                 <input type="text" value="0">
@@ -282,7 +302,7 @@
                                 <span class="caretx"></span>
                             </div>
                         </li>
-                        <li style="width: 18%">
+                        <li style="width: 20%">
                             <p class="left">响应流量范围</p>
                             <div class="fanwei left">
                                 <input type="text" value="0">
@@ -301,152 +321,18 @@
                         </li>
                     </ul>
                 </div>
-                <table class="tableCom eventListTab IPInforList">
-                    <tr class="tableTh">
-                        <th>攻击时间</th>
-                        <th>被攻击IP</th>
-                        <th>利用协议</th>
-                        <th>请求流量</th>
-                        <th>响应流量</th>
-                        <th>事件类型</th>
-                        <th>威胁级别</th>
-                        <th>深度分析</th>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2017/07/07 12:43</td>
-                        <td>192.123.1.50</td>
-                        <td>HTTP</td>
-                        <td>500KB</td>
-                        <td>500KB</td>
-                        <td>WEBSHELL</td>
-                        <td>中级威胁</td>
-                        <td>
-                            <button class="trace" onclick="window.open('attackDetails.html','_self')">查看攻击详情</button>
-                        </td>
-                    </tr>
-                </table>
-                <div class="page right">
-                    <ul class="left">
-                        <li><a href="javascript:"><img src="images/left.png" alt=""></a></li>
-                        <li><a href="javascript:">1</a></li>
-                        <li><a href="javascript:">2</a></li>
-                        <li><a href="javascript:">3</a></li>
-                        <li><a href="javascript:">4</a></li>
-                        <li><a href="javascript:">5</a></li>
-                        <li><a href="javascript:">...</a></li>
-                        <li><a href="javascript:" style="border-right: 1px solid #22c9fb"><img src="images/right.png" alt=""></a></li>
-                    </ul>
-                    <span style="margin-top: 2px">共 <span>20</span> 页</span>
-                    <span style="padding: 0 15px">到第 <input type="text" value="10" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
-                    <span style="height: 16px;line-height: 16px;padding: 3px 5px;background: #044392;color: #22c9fb;border: 1px solid #065f86;cursor: pointer">确定</span>
+               <div style="min-height: 414px">
+                   <table class="tableCom IPInforList" id="IPInforList">
+
+                   </table>
+               </div>
+                <div style="margin: 30px 2% 0 0" class="page">
+                    <div class="right">
+                        <span style="margin-top: 2px">共 <span class="pagetotal"></span> 页</span>
+                        <span style="padding: 0 15px">到第 <input type="text" value="1" style="color: #22c9fb;display: inline-block;width: 40px;padding: 0 7px;height: 22px;line-height: 23px;border: 1px solid #065f86;background: #062049"> 页</span>
+                        <span class="toPage" id="assetsTopage">确定</span>
+                    </div>
+                    <div class="pagination" id="yema"></div>
                 </div>
             </div>
         </div>

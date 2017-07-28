@@ -91,6 +91,7 @@
     position: relative;
     background: url("../images/border_qushi2.png") no-repeat center;
     background-size: 100%;
+    /*overflow: hidden;*/
 }
 .accessChartTime{
     position: absolute;
@@ -98,19 +99,35 @@
     top:21px;
     z-index: 99;
 }
-.accessChartTime>p,.filter>ul li p{
+.accesswexieTime{
+    position: absolute;
+    right: 305px;
+    top:21px;
+    z-index: 99;
+}
+.accessChartTime>p,.accesswexieTime>p,.filter>ul li p{
     color: #22c9fb;
     display: inline-block;
 }
-.accessChartTime>select,.filter>ul li select{
+.accessChartTime>select,.accesswexieTime>select,.filter>ul li select{
     width: 76px;
     height: 27px;
     border:1px solid #075c83;
     background: #06244b;
     color: #22c9fb;
+    overflow: hidden;
+    padding-left: 4px;
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/
+    background: url("../images/selectSanjiao.png") no-repeat 59px center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
 }
-.accessChartTime>select>option,.filter>ul li option{
+.accessChartTime>select>option,.accesswexieTime>select>option,.filter>ul li option{
     color: #22c9fb;
+    background: #06244b;
 }
 
 #accessChart{
@@ -121,9 +138,14 @@
 .IPInforList,.sourceIP{
     width: 97%;
     border-right: 1px solid #3188cf;
-    margin: 1.5%;
+    margin: 0 1.5% 1.5% 1.5%;
 }
-
+#alertLogs tr td span{
+    padding: 3px 5px;
+    margin: 0 3px 0 0;
+    color: white;
+    border-radius: 3px;
+}
 /*.IPInforList>tbody>tr>td:nth-child(1),.sourceIP>tbody>tr>td:nth-child(1){*/
     /*border-left: 1px solid #3188cf;*/
 /*}*/
@@ -147,15 +169,35 @@
     height: 42px;
     background: url("../images/accesslog.png");
 }
-.IPInforList>tbody>tr>td:nth-child(1),.IPInforList>tbody>tr>td:nth-child(3)
-,.IPInforList>tbody>tr>td:nth-child(5),.IPInforList>tbody>tr>td:nth-child(7)
-,.IPInforList>tbody>tr>td:nth-child(9),.IPInforList>tbody>tr>td:nth-child(11),
+.tdImg img{
+    width: 29px;
+    height: 22px;
+    vertical-align: middle;
+}
+#zhengdaoxu{
+    cursor: pointer;
+}
+.caretDao{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-bottom: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+}
+.IPInforList>tbody>tr>td:nth-child(odd),
 .sourceIP>tbody>tr>td:nth-child(1){
     background: #012859;
 }
-.IPInforList>tbody>tr>td:nth-child(2),.IPInforList>tbody>tr>td:nth-child(4)
-,.IPInforList>tbody>tr>td:nth-child(6),.IPInforList>tbody>tr>td:nth-child(8)
-,.IPInforList>tbody>tr>td:nth-child(10),.IPInforList>tbody>tr>td:nth-child(12)
+.IPInforList>tbody>tr>td:nth-child(6){
+    /*text-align: left;*/
+    /*width: 23%;*/
+    /*padding-left: 3%;*/
+}
+.IPInforList>tbody>tr>td:nth-child(even)
 ,.sourceIP>tbody>tr>td:nth-child(2){
     background: #014293;
     color: #ff8463;
@@ -170,13 +212,14 @@
     color: #22c9fb;
     float: left;
     margin-right: 0.5%;
+    height: 29px;
 }
 @media (max-width:1400px){
     .tendencyChart{
         height: 330px !important;
     }
     .filter>ul li:nth-child(6),.filter>ul li:nth-child(7){
-        width: 26% !important;
+        width: 27% !important;
     }
     .filter>ul li:nth-child(6),.filter>ul li:nth-child(7),.filter>ul li:nth-child(8){
         margin-top: 10px !important;
@@ -252,6 +295,9 @@
     height: 24px;
     line-height: 24px;
 }
+.active>a{
+    background:#013d85
+}
 .page{
     color:#22c9fb ;
     margin:10px 58px 30px 0;
@@ -280,5 +326,29 @@
 .accessLoTotal{
     width: 23%;
     float: left;
+    height: 234px;
     margin:0.5% 0 0 1.56%;
+    /*position: relative;*/
 }
+.toPage{
+    height: 16px;
+    line-height: 16px;
+    padding: 3px 5px;
+    background: #044392;
+    color: #22c9fb;
+    border: 1px solid #065f86;
+    cursor: pointer;
+}
+.srcIPTableTh{
+    margin-bottom: 0;
+}
+#srcIPTableWrap,#dstIPTableWrap
+,#mainRuleTypeWrap,#srcCountryWrap
+{overflow: hidden}
+
+
+
+
+
+
+

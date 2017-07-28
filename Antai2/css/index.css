@@ -1,3 +1,9 @@
+.leftNavCon{
+    height: 1227px;
+}
+.leftNav{
+    height: 1230px;
+}
 .rightConTop{
     margin: 52px 0 0 0;
     height: 140px;
@@ -41,36 +47,54 @@
     height: 25.41%;
     /*padding: 0 0 0 10px;*/
 }
-.domainT{
-    width: 100%;
-    height: 43px;
-    text-align: center;
-    color: white;
-    line-height: 43px;
-    font-size: 18px;
-    background: url("../images/bg_title_paiming.png") no-repeat left;
-    /*background-size: 100%;*/
-}
-
 .table{
     border-right: 1px solid #338ed7;
     border-bottom: 1px solid #338ed7;
 }
-.table>tbody>tr>th,.table>tbody>tr>td{
+.table>tbody>tr>td{
     border-left:1px solid #338ed7;
 }
-.table>tbody>tr,.attkTable>tbody>tr,.attkTypeTabTable>tbody>tr{
+.table>tbody>tr,.attkProtoTable>tbody>tr,.attkTypeTabTable>tbody>tr{
     border-bottom: 1px dashed #1254d1;
     color: #d0d3d7;
 }
-.table>tbody>tr>th:nth-child(1),.table>tbody>tr>th:nth-child(3)
-,.table>tbody>tr>td:nth-child(1),.table>tbody>tr>td:nth-child(3){
+.table>tbody>tr>td:nth-child(odd){
     background: #032f66;
 }
-.table>tbody>tr>th:nth-child(2),.table>tbody>tr>th:nth-child(4)
-,.table>tbody>tr>td:nth-child(2),.table>tbody>tr>td:nth-child(4){
+.table>tbody>tr>td:nth-child(even){
     background: #024598;
 }
+.table>tbody>.domainT{
+    width: 100%;
+    height: 43px;
+    background: url("../images/bg_title_paiming.png");
+    /*background-size: 100%;*/
+    border-bottom: none;
+}
+.tdImg img{
+    width: 29px;
+    height: 22px;
+    vertical-align: middle;
+}
+#attkTypeTable>tbody>tr>td:first-child{
+    height: 21px;
+    text-align: left;
+    padding-left: 9%;
+    overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+#attkTypeTable>tbody>tr>td:first-child:hover{
+    overflow: visible;
+}
+#domain>tbody>tr>td:first-child{
+    height: 21px;
+    text-align: left;
+    padding-left: 5%;
+    overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+#domain>tbody>tr>td:first-child:hover{
+    overflow: visible;
+}
+
 .table>tbody>tr:nth-child(4)>td:nth-child(2),
 .table>tbody>tr:nth-child(4)>td:nth-child(3),
 .table>tbody>tr:nth-child(4)>td:nth-child(4),
@@ -90,6 +114,7 @@
     position: relative;
     background: url("../images/border_liuliangtogji.png") no-repeat center;
     background-size: 100%;
+    margin-top: 10px;
 }
 .flowConTitle{
     width: 43.55%;
@@ -141,11 +166,11 @@
 }
 /*攻击源*/
 .attkSource,.attkTarget{
-    width: 25%;
+    width: 23%;
     height: 266px;
     border: 1px solid #047afe;
     position: relative;
-    margin: 48px 0 0 10px;
+    margin: 48px 0 40px 10px;
 }
 .attkSourceTitle,.attkTargetTitle,.attkTypeTabTitle{
     padding: 0 4%;
@@ -183,9 +208,12 @@
     right: -2px;
     background: url("../images/border_youxia.png") no-repeat center;
 }
-.attkTable,.attkTargetTable,.attkTypeTabTable{
+.attkSrcTable,.attkTargetTable,.attkTypeTabTable,.realTimeAttkTable,.attkProtoTable{
     margin-top: 22px;
 }
+/*#realTimeAttkTable{*/
+    /*margin-top: 0;*/
+/*}*/
 .tdImg img{
     width: 26px;
     height: 17px;
@@ -193,7 +221,7 @@
 }
 /*攻击类型排名*/
 .attkType{
-    width: 73%;
+    width: 67.5%;
     height: 268px;
     margin-top: 48px;
     position: relative;
@@ -266,12 +294,12 @@
 .attkSerTabTitle{
     margin-left: -24.5%;
 }
-.attkSerTabTable>tbody>tr{
+.attkSrcTable>tbody>tr{
     border-bottom: 1px dashed #1254d1;
     color: #0f91c7;
 }
 .realTimeAttk{
-    width: 40%;
+    width: 51%;
 }
 .realTimeAttkTitle{
     margin-left: -8%;
@@ -280,4 +308,17 @@
     border-bottom: 1px dashed #1254d1;
     color: #f87f61;
 }
-
+.attkTypeTab,.attkSource,.attkTarget{
+    background: rgba(4,8,17,0.6);
+}
+.caretDao{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-bottom: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+}

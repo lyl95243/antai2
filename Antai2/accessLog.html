@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/accessLog.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="js/laydate-v1.1/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/placehlod.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/accessLog.js"></script>
@@ -70,7 +71,15 @@
             </ul>
         </div>
         <div class="calendarTime">
-            2017/06/01-2017/07/01 <span class="caret"></span>
+            <div class="calendarStartTime" style="margin-right: 20px">
+                <input class="laydate-icon" id="hello1" value="起始时间">
+            </div>
+            </input>
+            <div class="calendarEndTime">
+                <div class="calendarStartTime" style="margin-right: 20px">
+                    <input class="laydate-icon" id="hello2" value="结束时间">
+                </div>
+            </div>
         </div>
     </div>
     <!--左部导航-->
@@ -141,7 +150,7 @@
             <div class="yous"></div>
             <div class="youx"></div>
             <div class="accessLogTitle">
-                访 问 日 志
+                网 络 会 话
                 <div class="leftBor"></div>
                 <div class="rightBor"></div>
             </div>
@@ -201,7 +210,7 @@
             <!--访问趋势图-->
             <div style="margin-top: 35px">
                 <div class="accessChartTitle">
-                    访问趋势图
+                    会话趋势图
                     <div class="line"></div>
                 </div>
                 <div class="tendencyChart">
@@ -220,7 +229,7 @@
             <!--访问日志总数-->
             <div style="margin-top: 35px;">
                 <div class="accessLogTrace">
-                    访问日志总数1000
+                    网络会话总数1000
                     <div class="line"></div>
                 </div>
                <div style="overflow: hidden">
@@ -316,7 +325,7 @@
             <!--访问日志追踪-->
             <div style="margin-top: 35px;">
                 <div class="accessLogTrace">
-                    访问日志追踪
+                    网络会话追踪
                     <div class="line"></div>
                 </div>
 
