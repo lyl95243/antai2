@@ -264,7 +264,8 @@ $(function () {
                                }
                            }, onPageClicked: function (event, originaEvent, type, page) {
                                Ajax(
-                                   "/smarteye/api/search/alertlog/search?startTime="+startTime+"&endTime="+endTime+"&fastTime="+fastTime+"&attkIP="+attkIP+"&attackedIP="+attkedIP+"&attkType="+attkType+"&protocol="+protocol+"&alertLevel="+alertLevel+"&reqFromSS="+reqForm+"&reqToSS="+reqTo+"&resFromSS="+resForm+"&resToSS="+resTo+"&page="+page+"&pageSize=10",                            "get",
+                                   "/smarteye/api/search/alertEvent/search?startTime="+startTime+"&endTime="+endTime+"&fastTime="+fastTime+"&attkIP="+attkIP+"&attkType="+attkType+"&protocol="+protocol+"&alertLevel="+alertLevel+"&page="+page+"&pageSize=10",
+                                   "get",
                                    "json",
                                    "",
                                    false,
@@ -272,17 +273,18 @@ $(function () {
                                        console.log(result);
                                        var arrResults = eval(result.results)
                                        tb.html("");
-                                       var tableTh = '<tr class="tableTh"><th>访问时间</th><th>攻击IP</th><th>攻击国家</th><th>被攻击IP</th> <th>被攻击国家</th> <th>攻击类型</th> <th>利用协议</th> <th>请求流量</th> <th>响应流量</th> <th>威胁级别</th> <th>规则标志</th> <th>操作</th></tr>'
+                                       var tableTh = '<tr class="tableTh"><th>最早攻击时间</th><th>最近攻击时间</th><th>攻击IP</th><th>攻击地区</th> <th>利用协议</th> <th>攻击类型</th> <th>威胁级别</th> <th>攻击次数</th><th>深度分析</th></tr>'
                                        tb.append(tableTh);
                                        $.each(arrResults, function (i) {
+                                           // 危险级别
                                            var levell = "";
-                                           if (arrResults[i].alertLevel == 1) {
+                                           if (arrResults[i].level == 1) {
                                                levell = "低级威胁"
-                                           } else if (arrResults[i].alertLevel == 2) {
+                                           } else if (arrResults[i].level == 2) {
                                                levell = "中级威胁"
-                                           } else if (arrResults[i].alertLevel == 3) {
+                                           } else if (arrResults[i].level == 3) {
                                                levell = "高级威胁"
-                                           }
+                                           };
                                            // 攻击地区
                                            var imgSrc = "";
                                            if (arrResults[i].location == "") {
@@ -293,29 +295,39 @@ $(function () {
                                            if(arrResults[i].country==""){
                                                arrResults[i].country="中国"
                                            }
+                                           // 利用协议
+                                           var protos="";
+                                           if(arrResults[i].protos.length>=3){
+                                               protos="<span>"+arrResults[i].protos[0]+"</span>" +
+                                                   "<span>"+arrResults[i].protos[1]+"</span>" +
+                                                   "<span>"+arrResults[i].protos[2]+"</span>";
+                                           }else if(arrResults[i].protos.length==2){
+                                               protos="<span>"+arrResults[i].protos[0]+"</span>" +
+                                                   "<span>"+arrResults[i].protos[1]+"</span>"
+                                           }else if(arrResults[i].protos.length==1){
+                                               protos="<span>"+arrResults[i].protos[0]+"</span>"
+                                           }
                                            // 攻击类型
-                                           var arrtypes=[];
-                                           if(arrResults[i].types.length>3){
-                                               arrResults[i].types.length=3;
-                                               for(var j=0;j<arrResults[i].types.length;j++){
-                                                   var types="<span>"+arrResults[i].types[j]+"</span>";
-                                                   arrtypes.push(types)
-                                               }
-                                           }else {
-                                               for(var j=0;j<arrResults[i].types.length;j++){
-                                                   var types="<span>"+arrResults[i].types[j]+"</span>";
-                                                   arrtypes.push(types)
-                                               }
-                                           };
+                                           var attTypes="";
+                                           if(arrResults[i].types.length>=3){
+                                               attTypes="<span style='background:#e3221f'>"+arrResults[i].types[0]+"</span>" +
+                                                   "<span style='background:#f3d354'>"+arrResults[i].types[1]+"</span>" +
+                                                   "<span style='background:#4AE13A'>"+arrResults[i].types[2]+"</span>";
+                                           }else if(arrResults[i].types.length==2) {
+                                               attTypes="<span style='background:#e3221f'>"+arrResults[i].types[0]+"</span>" +
+                                                   "<span style='background:#f3d354'>"+arrResults[i].types[1]+"</span>"
+                                           }else if(arrResults[i].types.length==1) {
+                                               attTypes="<span style='background:#e3221f'>"+arrResults[i].types[0]+"</span>"
+                                           }
                                            var tableCon = '<tr><td>' + arrResults[i].attkStartTime + '</td>' +
                                                '<td>' + arrResults[i].attkEndTime + '</td>' +
                                                '<td>' + arrResults[i].attkIP + '</td>' +
-                                               '<td class="tdImg"><img src="'+imgSrc+'" alt="">' + arrResults[i].country + '</td>' +
-                                               '<td><span>' + arrResults[i].protos + '</span></td>' +
-                                               '<td>'+arrtypes+'</td>' +
+                                               '<td class="tdImg"><img src="'+imgSrc+'" alt=""><span>' + arrResults[i].country + '</span></td>' +
+                                               '<td>'+protos+'</td>' +
+                                               '<td>'+attTypes+'</td>' +
                                                '<td>' + levell + '</td>' +
                                                '<td>' + arrResults[i].attkNum+ '</td>' +
-                                               '<td><button class="trace">攻击溯源</button></td></tr>'
+                                               '<td><button class="trace">攻击溯源</button></td></tr>';
                                            tb.append(tableCon);
                                            // 点击攻击溯源
                                            $("#threatEventList").delegate("tr .trace","click",function () {

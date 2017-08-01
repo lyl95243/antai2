@@ -70,13 +70,13 @@
             </ul>
         </div>
         <div class="calendarTime">
-            <div class="calendarStartTime" style="margin-right: 20px">
-                <input class="laydate-icon" id="hello1" value="起始时间">
+            <div class="calendarStartTime" style="margin-right: 20px" id="startTime">
+                <input class="laydate-icon" id="hello1" placeholder="起始时间">
             </div>
             </input>
             <div class="calendarEndTime">
-                <div class="calendarStartTime" style="margin-right: 20px">
-                    <input class="laydate-icon" id="hello2" value="结束时间">
+                <div class="calendarStartTime" style="margin-right: 20px" id="endTime">
+                    <input class="laydate-icon" id="hello2" placeholder="结束时间">
                 </div>
             </div>
         </div>
@@ -205,82 +205,47 @@
             </div>
             <div class="rightConSec">
                 <!--域名排名-->
-                <div class="domainCon left" style="padding-left: 0.5%; ">
+                <div class="domainCon left">
+                    <div class="domainTabTitle">
+                        域名排名
+                    </div>
+                    <div class="zuos"></div>
+                    <div class="yous"></div>
+                    <div class="zuox"></div>
+                    <div class="youx"></div>
                     <table class="tableCom table" id="domain" style="table-layout:fixed">
 
                     </table>
                 </div>
+                <!--<div class="domainCon left" style="padding-left: 0.5%; ">-->
+                    <!--<table class="tableCom table" id="domain" style="table-layout:fixed">-->
+
+                    <!--</table>-->
+                <!--</div>-->
                 <!--出入口流量统计-->
                 <div class="flowCon left">
                      <div class="flowConTitle">
                         出入口流量统计
                      </div>
                     <div>
-                        <div class="flow">(流量)</div>
-                        <div class="TOPFlow">TCP流量</div>
+                        <!--<div class="flow">(流量)</div>-->
+                        <div class="TCPFlow">TCP流量</div>
                         <div class="UDPFlow">UDP流量</div>
                         <div class="totalFlow">总流量</div>
                     </div>
-                    <div id="flowEchart" style="width: 100%;height: 300px;"></div>
+                    <div id="flowEchart" style="width: 100%;height: 161px;"></div>
                 </div>
                 <!--服务流量排名-->
                 <div class="domainCon left">
-                    <table class="tableCom table">
-                        <tr class="domainT">
-                            <th>服务名称</th>
-                            <th>入口总流量</th>
-                            <th>出口总流量</th>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
-                        <tr>
-                            <td>http</td>
-                            <td>12G</td>
-                            <td>12G</td>
-                        </tr>
+                    <div class="domainTabTitle" style="margin-left: -12%">
+                        服务流量排名
+                    </div>
+                    <div class="zuos"></div>
+                    <div class="yous"></div>
+                    <div class="zuox"></div>
+                    <div class="youx"></div>
+                    <table class="tableCom table" id="serverStream">
+
                     </table>
                 </div>
             </div>
@@ -331,7 +296,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="attkTypeChart" style="width: 100%;height: 280px;"></div>
+                    <div id="attkTypeChart" style="width: 100%;height: 213px;"></div>
                 </div>
                 <!--利用协议类型-->
                 <div class="attkTypeTab left">
@@ -375,7 +340,7 @@
                     </table>
                 </div>
                 <!--实时攻击信息-->
-                <div class="attkTypeTab realTimeAttk left">
+                <div class="attkTypeTab realTimeAttk left" style="margin-top: 0">
                     <div class="attkTypeTabTitle realTimeAttkTitle">
                         实时攻击信息
                     </div>

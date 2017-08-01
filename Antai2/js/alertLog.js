@@ -33,7 +33,7 @@ $(function () {
                     // console.log(arrLeixingT);  传参的
                 }
                 for (var j = 0; j < arrLeixing.length - 1; j++) {
-                    var option = '<option>' + arrLeixing[j] + '</option>'
+                    var option = '<option value='+arrLeixingT[j]+'>' + arrLeixing[j] + '</option>'
                     $("#attakType").append(option)
                 }
                 // gongjileixing();
@@ -137,7 +137,7 @@ $(function () {
     });
     var dstIPTimer, srcIPTimer, mainRuleTimer, srcCountryTimer
     $("#search").click(function () {
-        attkIP = $("#attkIP").val(),
+            attkIP = $("#attkIP").val(),
             attkedIP = $("#attkedIP").val(),
             protocol = $("#protocol option:selected").val(),
             alertLevel = $("#alertLevel option:selected").val(),
@@ -147,12 +147,7 @@ $(function () {
             resTo = $("#resTo").val(),
             startTime = $(".startTime").val(),
             endTime = $(".endTime").val();
-        for (var i = 0; i < arrLeixing.length; i++) {
-            if ($("#attakType option:selected").text() == arrLeixing[i]) {
-                attkType = arrLeixingT[i]
-            }
-        }
-        ;
+            attkType=$("#attakType option:selected").val();
 
         // sessionStorage.setItem("key", fastTime);
         // value=fastTime
@@ -199,13 +194,12 @@ $(function () {
         // console.log(value);
         function alertLogTrace(pageNum, isasc) {
             Ajax(
-                "/smarteye/api/search/alertlog/search?startTime=" + startTime + "&endTime=" + endTime + "&fastTime=" + value + "&attkIP=" + attkIP + "&attackedIP=" + attkedIP + "&attkType=" + attkType + "&protocol=" + protocol + "&alertLevel=" + alertLevel + "&reqFromSS=" + reqForm + "&reqToSS=" + reqTo + "&resFromSS=" + resForm + "&resToSS=" + resTo + "&page=" + pageNum + "&pageSize=10&&sortField=reqTime&isasc=" + isasc + "",
+                "/smarteye/api/search/alertlog/search?startTime=" + startTime + "&endTime=" + endTime + "&fastTime=" + fastTime + "&attkIP=" + attkIP + "&attackedIP=" + attkedIP + "&attkType=" + attkType + "&protocol=" + protocol + "&alertLevel=" + alertLevel + "&reqFromSS=" + reqForm + "&reqToSS=" + reqTo + "&resFromSS=" + resForm + "&resToSS=" + resTo + "&page=" + pageNum + "&pageSize=10&&sortField=reqTime&isasc=" + isasc + "",
                 "get",
                 "json",
                 "",
                 false,
                 function (result) {
-                    console.log(result);
                     var eventType = "";
                     var arrResults = eval(result.results);
                     var tb = $("#alertLogs");

@@ -1,0 +1,171 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: "微软雅黑";
+}
+a{
+    text-decoration: none;
+}
+.container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../images/bg.png");
+    background-size: 100%;
+}
+.content{
+    height: 53%;
+    width: 37.3%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-top: -12%;
+    margin-left: -19%;
+}
+.logoText{
+    width: 68.5%;
+    margin: 0 auto;
+}
+.logoText>img{
+    width: 100%;
+}
+.loginWrap{
+    width: 100%;
+    height: 80%;
+    border: 1px solid #3075f6;
+    margin-top: 25px;
+    position: relative;
+    background: rgba(17,34,74,0.3);
+}
+.zuos,.zuox,.yous,.youx{
+    width: 300px;
+    height: 109px;
+    position: absolute;
+}
+.zuos{
+    background: url("../images/bg_attackBackzuos.png");
+    top:-8px;
+    left: -9px;
+}
+.zuox{
+    background: url("../images/bg_attackBackzuox.png");
+    bottom: -8px;
+    left:-9px;
+}
+.yous{
+    background: url("../images/bg_attackBackyous.png");
+    top: -8px;
+    right: -9px;
+}
+.youx{
+    background: url("../images/bg_attackBackyoux.png");
+    bottom: -8px;
+    right: -9px;
+}
+.logo{
+    text-align: center;
+    margin-top: 7%;
+}
+.name{
+    width: 50.8%;
+    height: 46px;
+    background: url("../images/loginLogo(5).png");
+    margin: 6% auto 6%;
+}
+.name>img{
+    vertical-align:middle;
+    margin-left: 7%;
+}
+.name>input{
+    background: transparent;
+    outline: none;
+    border: none;
+    height: 21px;
+    padding: 8px 0 8px 10px;
+    color: white;
+}
+.name>input::-webkit-input-placeholder{
+    color:    #fff;
+}
+.name>input:-moz-placeholder{
+    color:    #fff;
+}
+.name>input::-moz-placeholder{
+    color:    #fff;
+}
+.name>input:-ms-input-placeholder{
+    color:    #fff;
+}
+.loginBtn{
+    width: 50.8%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    background: #5ac1f9;
+    border-radius: 8px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.loginBtn>input{
+    outline: none;
+    border: none;
+    background: transparent ;
+    font-size: 18px;
+    color: #0b1327;
+    font-weight: 600;
+    cursor: pointer;
+}
+@media (max-width: 1400px) {
+    .name{
+        width: 50.8%;
+        height: 31px;
+        background: url("../images/loginLogo(5).png");
+        background-size:100%;
+        margin: 3% auto 3%;
+    }
+    .name>img{
+        vertical-align:middle;
+        margin-left: 7%;
+    }
+    .name>input{
+        background: transparent;
+        outline: none;
+        border: none;
+        /*height: 21px;*/
+        padding: 3px 0 0 10px;
+        color: white;
+    }
+    .name>input::-webkit-input-placeholder{
+        color:    #fff;
+    }
+    .name>input:-moz-placeholder{
+        color:    #fff;
+    }
+    .name>input::-moz-placeholder{
+        color:    #fff;
+    }
+    .name>input:-ms-input-placeholder{
+        color:    #fff;
+    }
+    .loginBtn{
+        width: 50.8%;
+        height: 31px;
+        line-height: 31px;
+        text-align: center;
+        background: #5ac1f9;
+        border-radius: 8px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+    .loginBtn>input{
+        outline: none;
+        border: none;
+        background: transparent ;
+        font-size: 18px;
+        color: #0b1327;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}

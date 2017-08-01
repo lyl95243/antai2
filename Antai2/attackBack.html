@@ -218,7 +218,7 @@
                     <div class="line"></div>
                 </div>
                 <div class="tendencyChart">
-                    <div class="tendencyjibieTime">
+                    <div class="tendencyjibieTime" id="tendencyjibieTime">
                         <p>威胁级别</p>
                         <select name="">
                             <option value="-1">所有</option>
@@ -229,7 +229,7 @@
                     </div>
                     <div class="tendencyChartTime">
                         <p>时间间隔</p>
-                        <select name="">
+                        <select name="" id="time">
                             <option value="0">秒</option>
                             <option value="1">分钟</option>
                             <option value="2" selected="selected">小时</option>
@@ -258,7 +258,7 @@
                     <ul>
                         <li>
                             <span>被攻击IP</span>
-                            <input type="text" placeholder="输入被攻击IP">
+                            <input type="text" placeholder="输入被攻击IP" id="attkedIP">
                         </li>
                         <li>
                             <p>攻击类型</p>
@@ -268,7 +268,7 @@
                         </li>
                         <li>
                             <p>利用协议</p>
-                            <select name="">
+                            <select name="" id="protocol">
                                 <option value="">所有</option>
                                 <option value="HTTP">HTTP</option>
                                 <option value="SMTP">SMTP</option>
@@ -281,7 +281,7 @@
                         </li>
                         <li>
                             <p>威胁级别</p>
-                            <select name="">
+                            <select name="" id="alertLevel">
                                 <option value="-1">所有</option>
                                 <option value="1">初级</option>
                                 <option value="2">中级</option>
@@ -291,13 +291,13 @@
                         <li style="width: 20%;">
                             <p class="left">请求流量范围</p>
                             <div class="fanwei left">
-                                <input type="text" value="0">
+                                <input type="text" value="0" id="reqFrom">
                                 <span class="carets"></span>
                                 <span class="caretx"></span>
                             </div>
                             <span style="display: inline-block;line-height: 23px;float: left">&nbsp; ~ </span>
                             <div class="fanwei left">
-                                <input type="text" value="1000">
+                                <input type="text" value="0" id="reqTo">
                                 <span class="carets"></span>
                                 <span class="caretx"></span>
                             </div>
@@ -305,19 +305,19 @@
                         <li style="width: 20%">
                             <p class="left">响应流量范围</p>
                             <div class="fanwei left">
-                                <input type="text" value="0">
+                                <input type="text" value="0" id="resFrom">
                                 <span class="carets"></span>
                                 <span class="caretx"></span>
                             </div>
                             <span style="display: inline-block;line-height: 23px;float: left">&nbsp; ~ </span>
                             <div class="fanwei left">
-                                <input type="text" value="1000">
+                                <input type="text" value="0" id="resTo">
                                 <span class="carets"></span>
                                 <span class="caretx"></span>
                             </div>
                         </li>
                         <li>
-                            <button class="search" onclick="window.open('','_self')">搜索</button>
+                            <button class="search" id="search">搜索</button>
                         </li>
                     </ul>
                 </div>
